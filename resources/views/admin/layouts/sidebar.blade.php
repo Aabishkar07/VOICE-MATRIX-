@@ -32,6 +32,38 @@
                     <span class="mx-3">Dashboard</span>
                 </a>
 
+                <a class="{{ request()->segment(2) == 'services' ? ' bg-green-700  text-white flex items-center px-6 py-2  mr-3 flex-1 mt-2 item ' : 'mr-3 flex-1 mt-2 item hover:bg-green-700 hover:text-white flex items-center px-6 py-2  text-gray-600' }}"
+                    href="{{ route('admin.services.index') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-server-2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M3 4m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
+                        <path d="M3 12m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
+                        <path d="M7 8l0 .01" />
+                        <path d="M7 16l0 .01" />
+                        <path d="M11 8h6" />
+                        <path d="M11 16h6" />
+                    </svg>
+                    <span class="mx-3">Services</span>
+                </a>
+                <a class="{{ request()->segment(2) == 'offers' ? ' bg-green-700  text-white flex items-center px-6 py-2  mr-3 flex-1 mt-2 item ' : 'mr-3 flex-1 mt-2 item hover:bg-green-700 hover:text-white flex items-center px-6 py-2  text-gray-600' }}"
+                    href="{{ route('admin.offers.index') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-server-2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M3 4m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
+                        <path d="M3 12m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
+                        <path d="M7 8l0 .01" />
+                        <path d="M7 16l0 .01" />
+                        <path d="M11 8h6" />
+                        <path d="M11 16h6" />
+                    </svg>
+                    <span class="mx-3">Offers</span>
+                </a>
+
+
 
                 <a class="{{ request()->segment(2) == 'banner' ? ' bg-green-700 text-white flex items-center px-6 py-2  mr-3 flex-1 mt-2 item ' : 'mr-3 flex-1 mt-2 item hover:bg-green-700 hover:text-white flex items-center px-6 py-2  text-gray-600' }}"
                     href="{{ route('admin.banner.index') }}">
@@ -228,21 +260,6 @@
 
 
 
-                <a class="{{ request()->segment(2) == 'services' ? ' bg-green-700  text-white flex items-center px-6 py-2  mr-3 flex-1 mt-2 item ' : 'mr-3 flex-1 mt-2 item hover:bg-green-700 hover:text-white flex items-center px-6 py-2  text-gray-600' }}"
-                    href="{{ route('admin.services.index') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-server-2">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M3 4m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
-                        <path d="M3 12m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
-                        <path d="M7 8l0 .01" />
-                        <path d="M7 16l0 .01" />
-                        <path d="M11 8h6" />
-                        <path d="M11 16h6" />
-                    </svg>
-                    <span class="mx-3">Services</span>
-                </a>
 
                 <a class="{{ request()->segment(2) == 'products' ? ' bg-green-700  text-white flex items-center px-6 py-2  mr-3 flex-1 mt-2 item ' : 'mr-3 flex-1 mt-2 item hover:bg-green-700 hover:text-white flex items-center px-6 py-2  text-gray-600' }}"
                     href="{{ route('admin.products.index') }}">

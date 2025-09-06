@@ -34,7 +34,7 @@ class IndexController extends Controller
         $services = Service::latest()->limit(4)->get();
 
 
-        $products = Product::where('service_id' , 5)->where('status' ,'Active')->latest()->get();
+        $products = Product::where('service_id', 5)->where('status', 'Active')->latest()->get();
         $videos = Video::latest()->limit(4)->get();
         $about = Page::where('id', 3)->first();
         $faqs = Faq::latest()->limit(4)->get();
@@ -46,7 +46,7 @@ class IndexController extends Controller
         $mission = Page::where('id', 4)->first();
         $vision = Page::where('id', 5)->first();
         $corevalue = Page::where('id', 6)->first();
-        return view("frontend.home.index", compact("services", "products", "videos", "banners", "tesimonials", "teams", "blogs", 'about', 'faqs','popup','mission','vision','corevalue'));
+        return view("frontend.home.index", compact("services", "products", "videos", "banners", "tesimonials", "teams", "blogs", 'about', 'faqs', 'popup', 'mission', 'vision', 'corevalue'));
     }
 
     public function submitInquery(StoreInquiryRequest $request, Product $submitInquery)
@@ -67,58 +67,38 @@ class IndexController extends Controller
 
     public function subservices(Service $service) // Correct binding
     {
-
-
-
         if (!$service) {
             return redirect()->back()->with('error', 'Category not found.');
         }
+        return view("frontend.serviceproduct.index", compact('service'));
 
-
-        // $breadcrumbs = $this->getParentCategory($service->id);
-
-
-        $subcategories = Service::where('parent_id', $service->id)->get();
-
-
-
-        $title = $service->categoryname;
-        if ($subcategories->isEmpty()) {
-
-
-            $products = Product::where('service_id', $service->id)->where('status' ,'Active')->get();
-
-
-            $services = $products;
-            $params = $_GET;
-            return view("frontend.serviceproduct.index", compact( "params", "products", "title", 'services'));
-        }
-
-        return view('frontend.category.index', compact('subcategories', 'title'));
     }
 
     public function contact()
     {
-        $suppilers = Partner::orderBy("order" , 'asc')->get();
-        return view("frontend.contact.index" ,compact('suppilers'));
+        $suppilers = Partner::orderBy("order", 'asc')->get();
+        return view("frontend.contact.index", compact('suppilers'));
     }
 
-    public function brochure(){
+    public function brochure()
+    {
 
-        $brochure=Brochure::orderBy('order' , 'asc')->get();
-        return view('frontend.brochure.index',compact('brochure'));
+        $brochure = Brochure::orderBy('order', 'asc')->get();
+        return view('frontend.brochure.index', compact('brochure'));
     }
 
-    public function notice(){
+    public function notice()
+    {
 
-        $notices=Notice::get();
-        return view('frontend.notice.index',compact('notices'));
+        $notices = Notice::get();
+        return view('frontend.notice.index', compact('notices'));
     }
 
-    public function certificates(){
+    public function certificates()
+    {
 
-        $notices=Certificate::get();
-        return view('frontend.certificate.index',compact('notices'));
+        $notices = Certificate::get();
+        return view('frontend.certificate.index', compact('notices'));
     }
 
 

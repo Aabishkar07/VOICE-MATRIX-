@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('body')
     <div class="flex items-center gap-x-4 mb-6">
-        <a href="{{ route('admin.blogs.index') }}"
+        <a href="{{ route('admin.offers.index') }}"
             class="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20"
                 height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -12,11 +12,11 @@
                 <path d="M5 12l6 -6"></path>
             </svg>
         </a>
-        <div class="text-2xl font-bold text-gray-800">Edit Blog</div>
+        <div class="text-2xl font-bold text-gray-800">Edit Offer</div>
     </div>
 
     <div class="bg-white rounded-xl shadow-lg text-slate-600">
-        <form action="{{ route('admin.blogs.update', $blog->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.offers.update', $offer->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="p-8">
@@ -29,12 +29,12 @@
                             <!-- Title Field -->
                             <div>
                                 <label class="block text-sm font-semibold text-gray-700 mb-2">
-                                    Blog Title <span class="text-red-500">*</span>
+                                    Offer Title <span class="text-red-500">*</span>
                                 </label>
                                 <input
                                     class="w-full p-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-colors"
-                                    name="title" placeholder="Enter blog title here" type="text"
-                                    value="{{ old('title', $blog->title) }}" />
+                                    name="title" placeholder="Enter Offer title here" type="text"
+                                    value="{{ old('title', $offer->title) }}" />
                                 @error('title')
                                     <div class="text-sm text-red-500 mt-1">
                                         {{ $message }}
@@ -45,22 +45,22 @@
                             <!-- Image Upload Field -->
                             <div>
                                 <label class="block text-sm font-semibold text-gray-700 mb-2">
-                                    Featured Image
+                                     Image
                                 </label>
                                 <div
                                     class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 transition-colors">
-                                    <input type="file" name="featured_image"
+                                    <input type="file" name="image"
                                         class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                                         onchange="loadFile(event)" />
                                     <p class="text-xs text-gray-500 mt-2">PNG, JPG, GIF up to 10MB</p>
                                 </div>
 
                                 <!-- Current Image Preview -->
-                                @if ($blog->featured_image)
+                                @if ($offer->image)
                                     <div class="mt-3">
                                         <p class="text-sm text-gray-600 mb-2">Current Image:</p>
                                         <img class="oldimage rounded-lg shadow-sm"
-                                            src="{{ asset('/uploads/' . $blog->featured_image) }}" alt="Current Blog Image"
+                                            src="{{ asset('/uploads/' . $offer->image) }}" alt="Current  Image"
                                             style="width: 100px; height: auto;">
                                     </div>
                                 @endif
@@ -69,7 +69,7 @@
                                 <img id="output" class="mt-3 rounded-lg shadow-sm"
                                     style="width: 100px; height: auto; display: none;" />
 
-                                @error('featured_image')
+                                @error('image')
                                     <div class="text-sm text-red-500 mt-1">
                                         {{ $message }}
                                     </div>
@@ -78,16 +78,17 @@
                         </div>
                     </div>
 
+
                     <!-- Description Section -->
                     <div class="border-b border-gray-200 pb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Blog Content</h3>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Offer Description</h3>
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-2">
                                 Description <span class="text-red-500">*</span>
                             </label>
                             <textarea
                                 class="block tinymce w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-colors"
-                                name="description" rows="6" placeholder="Enter detailed blog content...">{{ old('description', $blog->description) }}</textarea>
+                                name="description" rows="6" placeholder="Enter detailed  description...">{{ old('description', $offer->description) }}</textarea>
                             @error('description')
                                 <div class="text-sm text-red-500 mt-1">
                                     {{ $message }}
@@ -117,7 +118,7 @@
                                 <input
                                     class="w-full p-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-colors"
                                     name="meta_title" placeholder="Enter meta title for SEO" type="text"
-                                    value="{{ old('meta_title', $blog->meta_title ?? '') }}" />
+                                    value="{{ old('meta_title', $offer->meta_title) }}" />
                                 @error('meta_title')
                                     <div class="text-sm text-red-500 mt-1">
                                         {{ $message }}
@@ -133,7 +134,7 @@
                                 <input
                                     class="w-full p-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-colors"
                                     name="meta_keywords" placeholder="Enter keywords separated by commas" type="text"
-                                    value="{{ old('meta_keywords', $blog->meta_keywords ?? '') }}" />
+                                    value="{{ old('meta_keywords', $offer->meta_keywords) }}" />
                                 @error('meta_keywords')
                                     <div class="text-sm text-red-500 mt-1">
                                         {{ $message }}
@@ -148,7 +149,7 @@
                                 </label>
                                 <textarea
                                     class="w-full p-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-colors"
-                                    name="meta_description" placeholder="Enter meta description for search engines" rows="3">{{ old('meta_description', $blog->meta_description ?? '') }}</textarea>
+                                    name="meta_description" placeholder="Enter meta description for search engines" rows="3">{{ old('meta_description', $offer->meta_description) }}</textarea>
                                 @error('meta_description')
                                     <div class="text-sm text-red-500 mt-1">
                                         {{ $message }}
@@ -160,7 +161,7 @@
 
                     <!-- Action Buttons -->
                     <div class="flex items-center justify-end space-x-4 pt-6 border-t border-gray-200">
-                        <a href="{{ route('admin.blogs.index') }}"
+                        <a href="{{ route('admin.offers.index') }}"
                             class="px-6 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
                             Cancel
                         </a>
@@ -170,7 +171,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
                                 </path>
                             </svg>
-                            Update Blog
+                            Update Offer
                         </button>
                     </div>
                 </div>

@@ -1,9 +1,10 @@
 @extends('admin.layouts.app')
 @section('body')
-    <div class="flex items-center gap-x-4">
-        <a href="{{ route('admin.blogs.index') }}">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="24"
-                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+    <div class="flex items-center gap-x-4 mb-6">
+        <a href="{{ route('admin.blogs.index') }}"
+            class="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="20"
+                height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
                 stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path d="M5 12l14 0"></path>
@@ -11,120 +12,150 @@
                 <path d="M5 12l6 -6"></path>
             </svg>
         </a>
-        <div class="text-xl font-semibold ">Add Blogs</div>
+        <div class="text-2xl font-bold text-gray-800">Add Blog</div>
     </div>
-    <div class="bg-white rounded-lg shadow-lg row mt-30 text-slate-600">
-        <form method="post" action="{{ route('admin.blogs.store') }} " enctype="multipart/form-data">
+
+    <div class="bg-white rounded-xl shadow-lg text-slate-600">
+        <form method="post" action="{{ route('admin.blogs.store') }}" enctype="multipart/form-data">
             @csrf
-            <div class="p-6 mt-3">
-                <div class="flex flex-col ">
-                    <div>
-                        <label class="w-full text-sm font-semibold" htmlFor="">
-                            Title
-                        </label>
+            <div class="p-8">
+                <div class="space-y-6">
+                    <!-- Basic Information Section -->
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Basic Information</h3>
 
-                        <div>
-                            <input
-                                class="w-full p-3 mt-3 text-xs border border-gray-300 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 hover:border-blue-500"
-                                name="title" placeholder="Enter Title Here" type="text" value="{{ old('title') }}" />
-                            @error('title')
-                                <div class="text-sm text-red-400 invalid-feedback" style="display: block;">
-                                    * {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                    </div>
-
-
-
-
-                    {{-- <div class="mt-4">
-                        <h2 class="text-lg font-medium leading-6 text-gray-900">Categories</h2>
-                        <div id="" class="mt-3">
-
-                            <div id="" class="  rounded-sm transform  h-[100%] py-2">
-                                @foreach (getCategories(0) as $category)
-                                    <div class="flex items-center">
-                                        <input onclick="checkOnlyOne(this)"1 value={{ $category->id }} name="category"
-                                            @if (getCategories($category->id)->count() != 0) disabled @endif type="checkbox"
-                                            {{ old('category') == $category->id ? 'checked' : '' }} aria-haspopup="true"
-                                            aria-controls="menu-lang"
-                                            class="w-4 h-4 border-gray-300 rounded text-secondary focus:ring-secondary" />
-                                        <span class="block ml-2 text-gray-700 text-md ">
-                                            {{ $category->categoryname }}</span>
+                        <div class="grid grid-cols-1 gap-6">
+                            <!-- Title Field -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Blog Title <span class="text-red-500">*</span>
+                                </label>
+                                <input
+                                    class="w-full p-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-colors"
+                                    name="title" placeholder="Enter blog title here" type="text"
+                                    value="{{ old('title') }}" />
+                                @error('title')
+                                    <div class="text-sm text-red-500 mt-1">
+                                        {{ $message }}
                                     </div>
-                                    @if (getCategories($category->id)->count() != 0)
-                                        <div class="mt-2 ml-6">
-                                            @foreach (getCategories($category->id) as $subcategory)
-                                                <div class="flex items-center">
-
-                                                    <input type="checkbox" name="category" value="{{ $subcategory->id }}"
-                                                        {{ old('category') == $subcategory->id ? 'checked' : '' }}
-                                                        class="w-4 h-4 border-gray-300 rounded text-secondary focus:ring-secondary"
-                                                        onclick="checkOnlyOne(this)">
-                                                    <label
-                                                        class="block ml-2 text-sm text-gray-700">{{ $subcategory->categoryname }}</label>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    @endif
-                                @endforeach
+                                @enderror
                             </div>
 
-                            @error('category')
-                                <div class="mt-3 text-sm text-red-400 invalid-feedback" style="display: block;">
-                                    * {{ $message }}
+                            <!-- Image Upload Field -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Featured Image
+                                </label>
+                                <div
+                                    class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 transition-colors">
+                                    <input type="file" name="featured_image"
+                                        class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                                        onchange="loadFile(event)" />
+                                    <p class="text-xs text-gray-500 mt-2">PNG, JPG, GIF up to 10MB</p>
+                                </div>
+                                <img id="output" class="mt-3 rounded-lg shadow-sm" style="width: 100px; height: auto;" />
+                                @error('featured_image')
+                                    <div class="text-sm text-red-500 mt-1">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description Section -->
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Blog Content</h3>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                Description <span class="text-red-500">*</span>
+                            </label>
+                            <textarea
+                                class="block tinymce w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-colors"
+                                name="description" rows="6" placeholder="Enter detailed blog content...">{{ old('description') }}</textarea>
+                            @error('description')
+                                <div class="text-sm text-red-500 mt-1">
+                                    {{ $message }}
                                 </div>
                             @enderror
                         </div>
-                        <script>
-                            function checkOnlyOne(checkbox) {
-                                var checkboxes = document.getElementsByName(checkbox.name);
-                                checkboxes.forEach(function(currentCheckbox) {
-                                    if (currentCheckbox !== checkbox)
-                                        currentCheckbox.checked = false;
-                                });
-                            }
-                        </script>
-                    </div> --}}
-
-
-
-                    <div class="mt-3">
-                        <label class='text-sm font-semibold'>Blog Image</label>
-                        <div class='w-full p-2 mt-2 mb-1 text-sm border rounded-md shadow-sm form-control border-grey-400'>
-                            <input type="file" name="featured_image"
-                                class="image hover:border-blue-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 "
-                                onchange="loadFile(event)" />
-                        </div>
-                        <img id="output" style="width: 70px; margin-bottom: 2px;" />
-
-
-                        @error('featured_image')
-                            <div class="text-sm text-red-400 invalid-feedback" style="display: block;">
-                                * {{ $message }}
-                            </div>
-                        @enderror
                     </div>
 
-
-
-                    <div class="w-full mt-2 text-sm font-semibold ">
-                        Description
-                    </div>
-                    <textarea id="tinymce"
-                        class="block w-full px-3 py-2 mt-1 border rounded-md outline-none tinymce focus:border-blue-500 hover:border-blue-500"
-                        name="description" rows="5">{{ old('description') }}</textarea>
-                    @error('description')
-                        <div class="text-sm text-red-400 invalid-feedback" style="display: block;">
-                            * {{ $message }}
-                        </div>
-                    @enderror
-
+                    <!-- SEO Section -->
                     <div>
-                        <button
-                            class="px-4 py-1 mt-3 mr-2 text-white bg-green-700 border border-black rounded-md hover:bg-green-700 hover:text-white">
-                            Add
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                                </path>
+                            </svg>
+                            SEO Optimization
+                        </h3>
+
+                        <div class="grid grid-cols-1 gap-6">
+                            <!-- Meta Title -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Meta Title
+                                </label>
+                                <input
+                                    class="w-full p-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-colors"
+                                    name="meta_title" placeholder="Enter meta title for SEO" type="text"
+                                    value="{{ old('meta_title') }}" />
+                                @error('meta_title')
+                                    <div class="text-sm text-red-500 mt-1">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                            <!-- Meta Keywords -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Meta Keywords
+                                </label>
+                                <input
+                                    class="w-full p-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-colors"
+                                    name="meta_keywords" placeholder="Enter keywords separated by commas" type="text"
+                                    value="{{ old('meta_keywords') }}" />
+                                @error('meta_keywords')
+                                    <div class="text-sm text-red-500 mt-1">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                            <!-- Meta Description -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Meta Description
+                                </label>
+                                <textarea
+                                    class="w-full p-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-colors"
+                                    name="meta_description" placeholder="Enter meta description for search engines" rows="3">{{ old('meta_description') }}</textarea>
+                                @error('meta_description')
+                                    <div class="text-sm text-red-500 mt-1">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex items-center justify-end space-x-4 pt-6 border-t border-gray-200">
+                        <a href="{{ route('admin.blogs.index') }}"
+                            class="px-6 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
+                            Cancel
+                        </a>
+                        <button type="submit"
+                            class="px-8 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors">
+                            <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                            </svg>
+                            Add Blog
                         </button>
                     </div>
                 </div>

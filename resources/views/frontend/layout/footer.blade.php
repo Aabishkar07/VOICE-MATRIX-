@@ -131,7 +131,7 @@
 
 
 
-    <footer class="footer bg-[#1a365d] text-white py-12">
+    <footer class="footer bg-[#050a30] text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                 <div>

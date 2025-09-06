@@ -23,7 +23,8 @@ class UpdateServiceRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            // 'description' => 'required',
+            'description' => 'required',
+            'order' => 'nullable|numeric',
         ];
     }
 }

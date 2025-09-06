@@ -11,8 +11,12 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('services', function (Blueprint $table) {
-            //
-            $table->string('parent_id')->nullable()->after("title");
+            $table->string('image_alt')->nullable()->after("image");
+            $table->string('meta_title')->nullable()->after("description");
+            $table->string('meta_description')->nullable()->after("meta_title");
+            $table->string('meta_keywords')->nullable()->after("meta_description");
+
+
         });
     }
 

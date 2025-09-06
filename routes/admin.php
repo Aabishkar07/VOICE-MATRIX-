@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\NoticeController;
+use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\OtherSettingController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PartnerController;
@@ -34,6 +35,7 @@ Route::middleware(["admin"])->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::resource('setting', OtherSettingController::class);
     Route::resource('blogs', BlogController::class);
+    Route::resource('offers', OfferController::class);
     Route::resource('partners', PartnerController::class);
     Route::resource('testimonial', TestimonialController::class);
     Route::resource('certificate', CertificateController::class);

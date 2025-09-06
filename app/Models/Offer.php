@@ -4,22 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Blog extends Model
+class Offer extends Model
 {
     protected $fillable = [
         'title',
-        'featured_image',
+        'image',
+        'short_description',
         'order',
-        'slug',
-        'status',
-        'category_id',
-        'views',
-        'likes',
         'description',
-        'reading_time',
         'meta_title',
-        'meta_keywords',
         'meta_description',
-        'meta_image'
+        'meta_keywords',
+        'meta_image',
     ];
 }

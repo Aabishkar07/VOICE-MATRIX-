@@ -25,6 +25,9 @@ class UpdateBlogRequest extends FormRequest
             'title' => 'required|unique:blogs,title,' . $this->blog->id,
             // 'category' => 'required',
             'description' => 'required',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_keywords' => 'nullable|string',
+            'meta_description' => 'nullable|string|max:500',
         ];
     }
 }

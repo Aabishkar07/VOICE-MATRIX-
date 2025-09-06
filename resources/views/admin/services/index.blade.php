@@ -1,190 +1,235 @@
 @extends('admin.layouts.app')
 @section('body')
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            border: 1px solid #ccc;
-        }
-
-        th,
-        td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-    </style>
-
-
     @include('admin.include.toastmessage')
 
-    <div class="flex items-center">
-        <div class="flex-1">
+    <!-- Header Section -->
+    <div class="flex items-center justify-between mb-8">
+        <div class="flex items-center gap-x-4">
             @if (request('services'))
-
-            <div class="flex gap-2">
-
-                <a href="{{ route('admin.services.index') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                <a href="{{ route('admin.services.index') }}"
+                    class="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" width="20" height="20" stroke-width="2">
                         <path d="M5 12l14 0"></path>
                         <path d="M5 12l6 6"></path>
                         <path d="M5 12l6 -6"></path>
-                      </svg>
+                    </svg>
                 </a>
-                <h3 class="text-xl font-bold text-gray-700 text-primary max-sm:text-xs">Sub
-                    Services
-                </h3>
-            </div>
-        @else
-            <h3 class="text-xl font-bold text-gray-700 text-primary max-sm:text-xs">Services
-            </h3>
-        @endif
-        </div>
-        <div class="text-right ">
-
-
-                @if (request('services'))
-
-                <a href="{{ route('admin.services.create', ['services' => request('services')]) }} "
-                class="flex items-center px-3 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all ease-linear bg-green-700 border border-green-700 rounded outline-none hover:bg-transparent hover:text-green-700 focus:outline-none duration-400 ">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24"
-                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M12 5l0 14"></path>
-                    <path d="M5 12l14 0"></path>
-                </svg>
-                Add Sub services</a>
-                @else
-                <a href="{{ route('admin.services.create') }} "
-                class="flex items-center px-3 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all ease-linear bg-green-700 border border-green-700 rounded outline-none hover:bg-transparent hover:text-green-700 focus:outline-none duration-400 ">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24"
-                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M12 5l0 14"></path>
-                    <path d="M5 12l14 0"></path>
-                </svg>
-                Add service</a>
-
-                @endif
-
-        </div>
-    </div>
-
-
-    <div class="py-3 ">
-        <div class="mt-1">
-            {{-- -mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto z-[0] max-h-screen overflow-y-auto --}}
-            <div class="relative mt-10 text-white bg-green-700 shadow product-tablerounded-lg ">
-                <div class="overflow-x-auto ">
-                    {{-- max-h-screen min-w-full shadow rounded-lg z-[0] overflow-y-hidden --}}
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="">
-                            <tr>
-                                <th class="px-5 py-3 font-semibold text-left ">
-                                    Title</th>
-                                {{-- <th class="px-5 py-3 font-semibold text-left ">
-                                    Category Name</th> --}}
-
-                                <th class="px-5 py-3 font-semibold text-left ">
-                                    Image</th>
-                                <th class="px-5 py-3 font-semibold text-left ">
-                                    Created at</th>
-
-                                <th class="px-5 py-3 font-semibold text-left ">
-                                    Actions</th>
-                            </tr>
-                        </thead>
-
-
-
-                        @foreach ($services as $key => $service)
-                            <tbody class="bg-white divide-y divide-gray-200 ">
-                                <tr>
-                                    <td class="px-5 py-3 ">
-                                        <p class="text-gray-900 ">{{ $service->title }}</p>
-                                    </td>
-
-                                    <td class="p-2" style="width: 100px;">
-                                        <img class="w-full h-full " src="{{ asset('uploads/' . $service->image) }}"
-                                            alt="Card" style="width: 70px;">
-                                    </td>
-
-                                    <td class="w-48 px-5 py-3 text-sm">
-                                        <p class="text-gray-900 ">
-                                            {{ $service->created_at->format('jS M Y') }}
-                                        </p>
-                                    </td>
-
-
-                                    <td>
-                                        <div class="flex items-center p-2">
-
-                                            @if (!request('services'))
-                                            <a href="{{ route('admin.services.index', ['services' => $service->id]) }}"
-                                                class="px-2 py-1 mr-4 text-xs font-bold text-white uppercase transition-all bg-blue-500 rounded-lg shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/40">
-                                                Sub Service
-                                            </a>
-
-                                        @endif
-
-                                            <a href=" {{ route('admin.services.edit', $service->id) }}">
-                                                <div class="flex px-2 py-1 mx-2 text-white rounded-md bg-slate-500">
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                        class="icon icon-tabler icon-tabler-edit" width="24"
-                                                        height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                        stroke="currentColor" fill="none" stroke-linecap="round"
-                                                        stroke-linejoin="round">
-                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                        <path
-                                                            d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1">
-                                                        </path>
-                                                        <path
-                                                            d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z">
-                                                        </path>
-                                                        <path d="M16 5l3 3"></path>
-                                                    </svg>
-
-                                                </div>
-                                            </a>
-
-                                            <form method="POST"
-                                                action="{{ route('admin.services.destroy', $service->id) }}"
-                                                id="delete-form-{{ $service->id }}">
-                                                @csrf
-                                                @method('delete')
-                                                <button type="button" onclick="deleteItem({{ $service->id }})"
-                                                    class="flex px-2 py-1 mx-2 text-white bg-red-500 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                        class="icon icon-tabler icon-tabler-trash" width="24"
-                                                        height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                        stroke="currentColor" fill="none" stroke-linecap="round"
-                                                        stroke-linejoin="round">
-                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                        <path d="M4 7l16 0"></path>
-                                                        <path d="M10 11l0 6"></path>
-                                                        <path d="M14 11l0 6"></path>
-                                                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
-                                                        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
-                                                    </svg>
-                                                </button>
-                                            </form>
-
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                        @endforeach
-
-                    </table>
-
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-800">Sub Services</h1>
+                    <p class="text-sm text-gray-600">Manage sub-services for your main service</p>
                 </div>
-            </div>
-            {{-- <div class="z-0 mt-3">
-                {{ $services->links('vendor.pagination.tailwind') }}
-            </div> --}}
+            @else
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-800">Services</h1>
+                    <p class="text-sm text-gray-600">Manage all your services and their sub-services</p>
+                </div>
+            @endif
+        </div>
+
+        <div class="flex items-center gap-3">
+            @if (request('services'))
+                <a href="{{ route('admin.services.create', ['services' => request('services')]) }}"
+                    class="flex items-center px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 5l0 14"></path>
+                        <path d="M5 12l14 0"></path>
+                    </svg>
+                    Add Sub Service
+                </a>
+            @else
+                <a href="{{ route('admin.services.create') }}"
+                    class="flex items-center px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 5l0 14"></path>
+                        <path d="M5 12l14 0"></path>
+                    </svg>
+                    Add Service
+                </a>
+            @endif
         </div>
     </div>
+
+    <!-- Services Table -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                            S.N.
+                        </th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                            Service Details
+                        </th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                            Image
+                        </th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                            Order
+                        </th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                            Created Date
+                        </th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    @forelse ($services as $key => $service)
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    {{-- <div class="flex-shrink-0 w-2 h-2 bg-green-500 rounded-full mr-3"></div> --}}
+                                    <div>
+
+                                        <div class="text-md text-gray-500"> {{ $key + 1 }}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+
+                                    <div>
+                                        <div class="text-sm font-medium text-gray-900">{{ $service->title }}</div>
+                                        {{-- <div class="text-sm text-gray-500">ID: #{{ $service->id }}</div> --}}
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                @if ($service->image)
+                                    <div class="flex-shrink-0">
+                                        <img class="w-16 h-16 rounded-lg object-cover shadow-sm border border-gray-200"
+                                            src="{{ asset('uploads/' . $service->image) }}" alt="{{ $service->title }}">
+                                    </div>
+                                @else
+                                    <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                @endif
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <div>
+                                        <div class="text-sm font-medium text-gray-900">{{ $service->order }}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="text-sm text-gray-900">{{ $service->created_at->format('M d, Y') }}</div>
+                                <div class="text-sm text-gray-500">{{ $service->created_at->format('g:i A') }}</div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center space-x-2">
+                                    @if (!request('services'))
+                                        <a href="{{ route('admin.services.index', ['services' => $service->id]) }}"
+                                            class="inline-flex items-center px-3 py-1.5 text-xs font-medium text-blue-700 bg-blue-100 rounded-lg hover:bg-blue-200 transition-colors">
+                                            <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                                                </path>
+                                            </svg>
+                                            Sub Services
+                                        </a>
+                                    @endif
+
+                                    <a href="{{ route('admin.services.edit', $service->id) }}"
+                                        class="inline-flex items-center px-3 py-1.5 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 mr-1" viewBox="0 0 24 24"
+                                            stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                                            <path
+                                                d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z">
+                                            </path>
+                                            <path d="M16 5l3 3"></path>
+                                        </svg>
+                                        Edit
+                                    </a>
+
+                                    <form method="POST" action="{{ route('admin.services.destroy', $service->id) }}"
+                                        id="delete-form-{{ $service->id }}" class="inline">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="button" onclick="deleteItem({{ $service->id }})"
+                                            class="inline-flex items-center px-3 py-1.5 text-xs font-medium text-red-700 bg-red-100 rounded-lg hover:bg-red-200 transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 mr-1"
+                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M4 7l16 0"></path>
+                                                <path d="M10 11l0 6"></path>
+                                                <path d="M14 11l0 6"></path>
+                                                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                            </svg>
+                                            Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="4" class="px-6 py-12 text-center">
+                                <div class="flex flex-col items-center">
+                                    <svg class="w-12 h-12 text-gray-400 mb-4" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                                        </path>
+                                    </svg>
+                                    <h3 class="text-lg font-medium text-gray-900 mb-2">No services found</h3>
+                                    <p class="text-gray-500 mb-4">Get started by creating your first service.</p>
+                                    @if (request('services'))
+                                        <a href="{{ route('admin.services.create', ['services' => request('services')]) }}"
+                                            class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2"
+                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M12 5l0 14"></path>
+                                                <path d="M5 12l14 0"></path>
+                                            </svg>
+                                            Add Sub Service
+                                        </a>
+                                    @else
+                                        <a href="{{ route('admin.services.create') }}"
+                                            class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2"
+                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M12 5l0 14"></path>
+                                                <path d="M5 12l14 0"></path>
+                                            </svg>
+                                            Add Service
+                                        </a>
+                                    @endif
+                                </div>
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {{-- Uncomment if pagination is needed
+    <div class="mt-6">
+        {{ $services->links('vendor.pagination.tailwind') }}
+    </div>
+    --}}
 @endsection

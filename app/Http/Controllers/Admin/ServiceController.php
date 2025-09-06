@@ -15,7 +15,8 @@ class ServiceController extends Controller
 
     public function __construct(
         protected ImageService $imageservice
-    ) {}
+    ) {
+    }
     /**
      * Display a listing of the resource.
      */
@@ -47,8 +48,8 @@ class ServiceController extends Controller
         $req['parent_id'] = $request->parent_id ?? 0;
         $service = Service::create($req);
 
-        if ($request->services) {
-            return redirect()->route('admin.services.index', ['services' => $request->services])->with('success', 'Sub Service Added');
+        if ($service->parent_id > 0) {
+            return redirect()->route('admin.services.index', ['services' => $service->parent_id])->with('popsuccess', 'Sub Service Added');
         } else {
             return redirect()->route("admin.services.index")->with("popsuccess", "Service Added");
         }
@@ -86,11 +87,11 @@ class ServiceController extends Controller
         }
         $req['slug'] = Str::slug($request->title);
         // $req["category_id"] = $request->category;
+        $req['parent_id'] = $request->parent_id ??
+            $service->update($req);
 
-        $service->update($req);
-
-        if ($request->services) {
-            return redirect()->route('admin.services.index', ['services' => $request->services])->with('success', 'Sub Service Edited');
+        if ($service->parent_id > 0) {
+            return redirect()->route('admin.services.index', ['services' => $service->parent_id])->with('popsuccess', 'Sub Service Edited');
         } else {
             return redirect()->route("admin.services.index")->with("popsuccess", "Service Edited");
         }
@@ -116,10 +117,7 @@ class ServiceController extends Controller
         }
         $service->delete();
 
-        if ($request->services) {
-            return redirect()->route('admin.services.index', ['services' => $request->services])->with('success', 'Sub Service Deleted');
-        } else {
-            return redirect()->route("admin.services.index")->with("popsuccess", "Service Deleted");
-        }
+        return redirect()->back()->with('popsuccess', ' Service Deleted');
+
     }
 }
