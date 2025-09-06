@@ -79,6 +79,7 @@ class OfferController extends Controller
             $req['image'] = $service_image;
         }
         $req['slug'] = Str::slug($request->title);
+        // dd($req);
 
 
         $offer->update($req);

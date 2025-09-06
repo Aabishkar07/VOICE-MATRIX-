@@ -24,7 +24,7 @@
                         <li>
                             <div class="flex items-center">
                                 <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                                <span class="text-sm font-medium text-gray-300">Services</span>
+                                <span class="text-sm font-medium text-gray-300">{{$title}}</span>
                             </div>
                         </li>
                         <li aria-current="page">

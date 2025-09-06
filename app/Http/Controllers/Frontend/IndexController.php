@@ -15,6 +15,7 @@ use App\Models\Contact;
 use App\Models\Faq;
 use App\Models\Inquiry;
 use App\Models\Notice;
+use App\Models\Offer;
 use App\Models\OtherSetting;
 use App\Models\Page;
 use App\Models\Partner;
@@ -34,11 +35,11 @@ class IndexController extends Controller
         $services = Service::latest()->limit(4)->get();
 
 
-        $products = Product::where('service_id', 5)->where('status', 'Active')->latest()->get();
         $videos = Video::latest()->limit(4)->get();
         $about = Page::where('id', 3)->first();
         $faqs = Faq::latest()->limit(4)->get();
         $teams = Team::latest()->get();
+        $offers = Offer::latest()->get();
         $tesimonials = Testimonial::first();
         $blogs = Blog::latest()->limit(3)->get();
         $banners = Banner::orderBy("order", "asc")->get();
@@ -46,7 +47,7 @@ class IndexController extends Controller
         $mission = Page::where('id', 4)->first();
         $vision = Page::where('id', 5)->first();
         $corevalue = Page::where('id', 6)->first();
-        return view("frontend.home.index", compact("services", "products", "videos", "banners", "tesimonials", "teams", "blogs", 'about', 'faqs', 'popup', 'mission', 'vision', 'corevalue'));
+        return view("frontend.home.index", compact("services", "offers", "videos", "banners", "tesimonials", "teams", "blogs", 'about', 'faqs', 'popup', 'mission', 'vision', 'corevalue'));
     }
 
     public function submitInquery(StoreInquiryRequest $request, Product $submitInquery)
@@ -68,9 +69,21 @@ class IndexController extends Controller
     public function subservices(Service $service) // Correct binding
     {
         if (!$service) {
-            return redirect()->back()->with('error', 'Category not found.');
+            return redirect()->back()->with('error', 'service not found.');
         }
-        return view("frontend.serviceproduct.index", compact('service'));
+        $title = "Services";
+        return view("frontend.serviceproduct.index", compact('service','title'));
+
+    }
+    public function offers(Offer $offer) // Correct binding
+    {
+        if (!$offer) {
+            return redirect()->back()->with('error', 'offer not found.');
+        }
+        $title = "Offers";
+        $service = $offer;
+
+        return view("frontend.serviceproduct.index", compact('service','title'));
 
     }
 

@@ -8,6 +8,7 @@ class Offer extends Model
 {
     protected $fillable = [
         'title',
+        'slug',
         'image',
         'short_description',
         'order',

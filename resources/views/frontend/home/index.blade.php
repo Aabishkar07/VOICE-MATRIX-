@@ -5,11 +5,9 @@
     @include('frontend.home.banner')
     @include('frontend.home.about')
 
+    @include('frontend.home.offers')
     @include('frontend.home.blog')
-    {{-- <div class="grid grid-cols-4">
 
-        @include('frontend.offer.card')
-    </div> --}}
     @include('frontend.home.contact')
 
 

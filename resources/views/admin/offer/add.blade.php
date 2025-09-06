@@ -67,6 +67,23 @@
 
                     <!-- Description Section -->
                     <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Offer Short Description</h3>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                              Short  Description <span class="text-red-500">*</span>
+                            </label>
+                            <textarea
+                                class="block  w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:border-blue-400 transition-colors"
+                                name="short_description" rows="6" placeholder="Enter short offer description...">{{ old('short_description') }}</textarea>
+                            @error('short_description')
+                                <div class="text-sm text-red-500 mt-1">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <!-- Description Section -->
+                    <div class="border-b border-gray-200 pb-6">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4">Offer Description</h3>
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-2">

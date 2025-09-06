@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
             $table->longText('title')->nullable();
+            $table->longText('slug')->nullable();
             $table->string('image')->nullable();
             $table->string('short_description')->nullable();
             $table->longText('description')->nullable();
