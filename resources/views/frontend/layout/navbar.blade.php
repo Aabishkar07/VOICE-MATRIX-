@@ -173,7 +173,7 @@
             <!-- Logo -->
             <a href="{{ route('home') }}" class="flex items-center">
                 <div class="flex items-center space-x-2 w-44">
-                    <img src="{{ asset('images/voicematrixlogo.png') }}" alt="voicematrixlogo" class="w-full" />
+                    <img src="{{ asset('images/voicematriclogo.svg') }}" alt="voicematrixlogo" class="w-full" />
                 </div>
             </a>
 
@@ -260,7 +260,7 @@
             <!-- Drawer Header -->
             <div class="flex items-center justify-between px-4 py-4 border-b">
                 <div class="flex items-center space-x-2 w-44">
-                    <img src="{{ asset('images/voicematrixlogo.png') }}" alt="voicematrixlogo" class="w-full" />
+                    <img src="{{ asset('images/voicematriclogo.svg') }}" alt="voicematrixlogo" class="w-full" />
                 </div>
                 <button class="p-2 rounded hover:bg-gray-100" aria-label="Close menu" onclick="closeMobileMenu()">
                     <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">

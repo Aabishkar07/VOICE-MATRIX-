@@ -57,7 +57,7 @@
             font-size: 1rem;
         }
     </style>
-    <link rel="shortcut icon" href="{{ asset('images/su-logo.png') }}">
+    <link rel="shortcut icon" href="{{ asset('images/voicefavicon.png') }}">
 
     @include('frontend.links.script')
 
