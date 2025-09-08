@@ -190,11 +190,11 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2023 Apex BPO Solutions. All Rights Reserved.</p>
+                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2023 Voice MAtrix BPO Solutions. All Rights Reserved.</p>
                 <div class="flex space-x-6">
                     <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a>
                     <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Terms of Service</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Sitemap</a>
+                    {{-- <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Sitemap</a> --}}
                 </div>
             </div>
         </div>

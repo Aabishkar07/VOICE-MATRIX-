@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-            <div class="relative mt-3">
+        <div class="relative mt-3">
                 <!-- Main Business Image -->
                 <div class="relative overflow-hidden rounded-2xl shadow-2xl">
                     <img src="{{ asset('images/img3.jpg') }}" alt="Business Meeting"
