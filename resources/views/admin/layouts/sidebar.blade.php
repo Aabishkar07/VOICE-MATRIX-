@@ -62,6 +62,34 @@
                     </svg>
                     <span class="mx-3">Offers</span>
                 </a>
+                <a class="{{ request()->segment(2) == 'affiliations' ? ' bg-green-700  text-white flex items-center px-6 py-2  mr-3 flex-1 mt-2 item ' : 'mr-3 flex-1 mt-2 item hover:bg-green-700 hover:text-white flex items-center px-6 py-2  text-gray-600' }}"
+                    href="{{ route('admin.affiliations.index') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-server-2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M3 4m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
+                        <path d="M3 12m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
+                        <path d="M7 8l0 .01" />
+                        <path d="M7 16l0 .01" />
+                        <path d="M11 8h6" />
+                        <path d="M11 16h6" />
+                    </svg>
+                    <span class="mx-3">Affiliations</span>
+                </a>
+
+                <a class="{{ request()->segment(2) == 'homesections' ? ' bg-green-700  text-white flex items-center px-6 py-2  mr-3 flex-1 mt-2 item ' : 'mr-3 flex-1 mt-2 item hover:bg-green-700 hover:text-white flex items-center px-6 py-2  text-gray-600' }}"
+                    href="{{ route('admin.homesections.index') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                        <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                    </svg>
+                    <span class="mx-3">Home Sections</span>
+                </a>
 
 
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AffiliationController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\HomeSectionController;
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\OtherSettingController;
@@ -36,7 +38,9 @@ Route::middleware(["admin"])->group(function () {
     Route::resource('setting', OtherSettingController::class);
     Route::resource('blogs', BlogController::class);
     Route::resource('offers', OfferController::class);
+    Route::resource('homesections', HomeSectionController::class);
     Route::resource('partners', PartnerController::class);
+    Route::resource('affiliations', AffiliationController::class);
     Route::resource('testimonial', TestimonialController::class);
     Route::resource('certificate', CertificateController::class);
     Route::resource('contacts', ContactController::class);
