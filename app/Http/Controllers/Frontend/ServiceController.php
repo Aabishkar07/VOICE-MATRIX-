@@ -24,9 +24,10 @@ class ServiceController extends Controller
 
     public function services()
     {
-        $services = Service::latest()->get();
+        $services = Service::where('parent_id', 0)->orderBy('order')->get();
+        $subServices = Service::where('parent_id', '!=', 0)->orderBy('order')->get();
 
-        return view('frontend.services.allservice', compact("services"));
+        return view('frontend.services.allservice', compact("services", "subServices"));
     }
     public function products()
     {

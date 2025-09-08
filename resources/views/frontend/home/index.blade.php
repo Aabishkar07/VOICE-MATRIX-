@@ -6,13 +6,14 @@
     @include('frontend.home.about')
 
     @include('frontend.home.offers')
+    @include('frontend.home.offersection')
     @include('frontend.home.blog')
 
+    @include('frontend.home.faq')
+    @include('frontend.home.affiliate')
+    @include('frontend.home.branch')
     @include('frontend.home.contact')
 
-
-
-    {{-- @include('frontend.home.sauryapellet_video') --}}
 
 
 
@@ -46,33 +47,6 @@
 
 
 
-
-    {{-- <div class="mx-auto my-4 max-w-screen-2xl">
-        <div class="px-10 max-sm:px-4">
-            <div class="flex flex-wrap items-center justify-between ">
-                <h2 class="text-2xl font-bold text-left text-gray-800 max-sm:text-lg md:text-2xl ">
-                    Our Products
-                </h2>
-                <a href="{{ route('products') }}" class="flex items-center px-4 py-2 text-gray-800 hover:underline ">
-                    View All
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right"
-                        width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                        fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M5 12l14 0"></path>
-                        <path d="M13 18l6 -6"></path>
-                        <path d="M13 6l6 6"></path>
-                    </svg>
-                </a>
-            </div>
-            <div class="flex py-3">
-                <div class="w-[10%] border border-[#f15a28]"></div>
-                <div class="w-[90%] border"></div>
-            </div>
-
-        </div>
-        @include('frontend.home.product')
-    </div> --}}
 
 
 {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
