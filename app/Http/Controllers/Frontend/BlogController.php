@@ -17,7 +17,7 @@ class BlogController extends Controller
 
     public function allblogs()
     {
-        $blogs = Blog::latest()->limit(3)->get();
+        $blogs = Blog::latest()->get();
 
         return view('frontend.blogs.allblog', compact("blogs"));
     }

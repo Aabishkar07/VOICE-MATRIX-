@@ -1,6 +1,8 @@
 @extends('frontend.layout.app')
 @section('body')
-{{-- @include('frontend.home.popup') --}}
+
+    @include('admin.include.toastmessage')
+    {{-- @include('frontend.home.popup') --}}
 
     @include('frontend.home.banner')
     @include('frontend.home.homeabout')
@@ -49,7 +51,7 @@
 
 
 
-{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
 
@@ -172,11 +174,4 @@
 
     @include('frontend.home.teams')
     @include('frontend.components.faq') --}}
-
-
-
-
 @endsection
-
-
-

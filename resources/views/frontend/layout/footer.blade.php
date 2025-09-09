@@ -1,10 +1,9 @@
-{{-- @php
+@php
     $setting = getSetting();
 
-    $services = getServices();
 @endphp
 
-<footer class="tracking-wide bg-black">
+{{-- <footer class="tracking-wide bg-black">
     <div class="px-6 mx-auto py-14 sm:px-10 max-w-screen-2xl">
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
 
@@ -131,71 +130,79 @@
 
 
 
-    <footer class="footer bg-[#050a30] text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <a href="index.html" class="text-2xl font-bold text-white inline-block mb-4">
-                        Voice Matrix
+<footer class="footer bg-[#050a30] text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+            <div class="md:col-span-2 lg:col-span-2">
+                <a href="{{ asset('home') }}" class="text-2xl font-bold text-white inline-block mb-4">
+                    <img class="w-72" src="{{ asset('images/whitelogo.svg') }}" alt="Logo" />
+                </a>
+                <p class="text-gray-300 mb-6">{{ $setting->short_description }}</p>
+                <div class="flex space-x-4">
+                    <a href="{{ $setting->facebook }}" target="_blank"
+                        class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="fab fa-facebook-f"></i>
                     </a>
-                    <p class="text-gray-300 mb-6">Delivering exceptional BPO solutions to businesses worldwide for over 15 years.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-all duration-300 transform hover:-translate-y-1">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-all duration-300 transform hover:-translate-y-1">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-all duration-300 transform hover:-translate-y-1">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-all duration-300 transform hover:-translate-y-1">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors duration-300">Home</a></li>
-                        <li><a href="#services" class="text-gray-300 hover:text-white transition-colors duration-300">Services</a></li>
-                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About Us</a></li>
-                        <li><a href="#industries" class="text-gray-300 hover:text-white transition-colors duration-300">Industries</a></li>
-                        <li><a href="#careers" class="text-gray-300 hover:text-white transition-colors duration-300">Careers</a></li>
-                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Services</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Customer Support</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Technical Support</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Finance & Accounting</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">HR Solutions</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Sales & Marketing</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Data Management</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Newsletter</h3>
-                    <p class="text-gray-300 mb-4">Subscribe to our newsletter for the latest updates and insights.</p>
-                    <form class="newsletter-form">
-                        <div class="flex">
-                            <input type="email" placeholder="Your Email" class="px-4 py-3 w-full rounded-l-lg focus:outline-none text-gray-800">
-                            <button type="submit" class="bg-primary text-white px-4 py-3 rounded-r-lg hover:bg-accent transition-colors duration-300">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </form>
+                    <a href="{{ $setting->twitter }}" target="_blank"
+                        class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="{{ $setting->linkedin }}" target="_blank"
+                        class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="{{ $setting->instagram }}" target="_blank"
+                        class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </div>
-            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2023 Voice MAtrix BPO Solutions. All Rights Reserved.</p>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Terms of Service</a>
-                    {{-- <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Sitemap</a> --}}
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="{{ route('home') }}"
+                            class="text-gray-300 hover:text-white transition-colors duration-300">Home</a>
+                    </li>
+
+                    <li><a href="{{ route('about') }}"
+                            class="text-gray-300 hover:text-white transition-colors duration-300">About
+                            Us</a></li>
+                    <li><a href="{{ route('allblogs') }}"
+                            class="text-gray-300 hover:text-white transition-colors duration-300">Blogs
+                        </a></li>
+                    <li><a href="{{ route('faqs') }}"
+                            class="text-gray-300 hover:text-white transition-colors duration-300">FAQ
+                        </a></li>
+
+                    <li><a href="{{ route('contact') }}"
+                            class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Address</h3>
+                <div class="">
+
+                    <div class="">
+                        {{ $setting->address }}
+
+                    </div>
+                    <div class="">
+
+                        {{ $setting->mainaddress }}
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>
+        <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 mb-4 md:mb-0">&copy; 2023 Voice MAtrix BPO Solutions. All Rights Reserved.</p>
+            <div class="flex space-x-6">
+                <a href="{{ route('privacyPolicy') }}" class="text-gray-200 hover:text-white transition-colors duration-300">Privacy
+                    Policy</a>
+                <a href="{{ route('termsandcondition') }}" class="text-gray-200 hover:text-white transition-colors duration-300">Terms of
+                    Service</a>
+                {{-- <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Sitemap</a> --}}
+            </div>
+        </div>
+    </div>
+</footer>

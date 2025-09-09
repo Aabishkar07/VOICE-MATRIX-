@@ -32,6 +32,7 @@ Route::get('allblogs', [BlogController::class, 'allblogs'])->name('allblogs');
 Route::get('services', [ServiceController::class, 'services'])->name('services');
 Route::get('/service/{service:slug}', [IndexController::class, 'subservices'])->name('subservices');
 Route::get('/offer/{offer:slug}', [IndexController::class, 'offers'])->name('offers.single');
+Route::get('/location/{location:slug}', [IndexController::class, 'location'])->name('location.single');
 
 Route::get('products', [ServiceController::class, 'products'])->name('products');
 Route::post('/updatecontact', [IndexController::class, 'updatecontact'])->name('updatecontact');

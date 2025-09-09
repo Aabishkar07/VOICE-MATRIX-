@@ -15,7 +15,7 @@ class OtherSettingController extends Controller
     {
         //
         $setting = OtherSetting::first();
-        return view('admin.OtherSetting.index',compact('setting'));
+        return view('admin.OtherSetting.index', compact('setting'));
     }
 
     /**
@@ -56,7 +56,7 @@ class OtherSettingController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $setting=OtherSetting::find($id);
+        $setting = OtherSetting::find($id);
         $setting->update([
             'email' => $request->email,
             'contact_number' => $request->contact_number,
@@ -66,7 +66,10 @@ class OtherSettingController extends Controller
             'address' => $request->address,
             'googlemap' => $request->googlemap,
             'mainaddress' => $request->main_address,
-
+            'tiktok' => $request->tiktok,
+            'twitter' => $request->twitter,
+            'short_description' => $request->short_description,
+            'linkedin' => $request->linkedin,
         ]);
         return redirect()->back()->with('popsuccess', 'Details Successully updated');
     }

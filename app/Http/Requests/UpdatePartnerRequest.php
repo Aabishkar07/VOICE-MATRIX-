@@ -22,11 +22,10 @@ class UpdatePartnerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required',
+         'title' => 'required',
             'description' => 'required',
+            'address' => 'required',
             'order' => 'nullable|numeric',
-            // 'category' => 'required',
-            // 'featured_image' => 'required',
         ];
     }
 }

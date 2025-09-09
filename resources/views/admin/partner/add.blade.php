@@ -11,7 +11,7 @@
                 <path d="M5 12l6 -6"></path>
             </svg>
         </a>
-        <div class="text-xl font-semibold ">Add Sales Center</div>
+        <div class="text-xl font-semibold ">Add Partner</div>
     </div>
     <div class="bg-white rounded-lg shadow-lg row mt-30 text-slate-600">
         <form method="post" action="{{ route('admin.partners.store') }} " enctype="multipart/form-data">
@@ -26,7 +26,8 @@
                         <div>
                             <input
                                 class="w-full p-3 mt-3 text-xs border border-gray-300 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 hover:border-blue-500"
-                                name="title" placeholder="Enter Title Here" type="text" value="{{ old('title') }}" required />
+                                name="title" placeholder="Enter Title Here" type="text" value="{{ old('title') }}"
+                                required />
                             @error('title')
                                 <div class="text-sm text-red-400 invalid-feedback" style="display: block;">
                                     * {{ $message }}
@@ -38,13 +39,14 @@
 
                     <div class="mt-2">
                         <label class="w-full text-sm font-semibold " htmlFor="">
-                          Address
+                            Address
                         </label>
 
                         <div>
                             <input
                                 class="w-full p-3 mt-3 text-xs border border-gray-300 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 hover:border-blue-500"
-                                name="address" placeholder="Enter address Here" type="text" value="{{ old('address') }}" required/>
+                                name="address" placeholder="Enter address Here" type="text" value="{{ old('address') }}"
+                                required />
                             @error('address')
                                 <div class="text-sm text-red-400 invalid-feedback" style="display: block;">
                                     * {{ $message }}
@@ -53,7 +55,8 @@
                         </div>
                     </div>
 
-                    <div class="mt-2">
+
+                    {{-- <div class="mt-2">
                         <label class="w-full text-sm font-semibold" htmlFor="">
                           Contact number
                         </label>
@@ -68,7 +71,7 @@
                                 </div>
                             @enderror
                         </div>
-                    </div>
+                    </div> --}}
 
 
 
@@ -80,7 +83,8 @@
                         <div>
                             <input
                                 class="w-full p-3 mt-3 text-xs border border-gray-300 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 hover:border-blue-500"
-                                name="order" placeholder="Enter order Here" type="number" value="{{ old('order') }}"  required/>
+                                name="order" placeholder="Enter order Here" type="number" value="{{ old('order') }}"
+                                required />
                             @error('order')
                                 <div class="text-sm text-red-400 invalid-feedback" style="display: block;">
                                     * {{ $message }}
@@ -90,36 +94,22 @@
                     </div>
 
 
-                    {{-- <div class="mt-3">
-                        <label class='text-sm font-semibold'> Image</label>
-                        <div class='w-full p-2 mt-2 mb-1 text-sm border rounded-md shadow-sm form-control border-grey-400'>
-                            <input type="file" name="featured_image"
-                                class="image hover:border-blue-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 "
-                                onchange="loadFile(event)" />
+                    <div class="mt-2">
+                        <label class="w-full text-sm font-semibold " htmlFor="">
+                            Description
+                        </label>
+
+                        <div>
+                            <textarea
+                                class="w-full tinymce p-3 mt-3 text-xs border border-gray-300 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 hover:border-blue-500"
+                                name="description" placeholder="Enter description Here" type="text" required>{{ old('description') }}</textarea>
+                            @error('description')
+                                <div class="text-sm text-red-400 invalid-feedback" style="display: block;">
+                                    * {{ $message }}
+                                </div>
+                            @enderror
                         </div>
-                        <img id="output" style="width: 70px; margin-bottom: 2px;" />
-
-
-                        @error('featured_image')
-                            <div class="text-sm text-red-400 invalid-feedback" style="display: block;">
-                                * {{ $message }}
-                            </div>
-                        @enderror
-                    </div> --}}
-
-
-
-                    {{-- <div class="w-full mt-2 text-sm font-semibold ">
-                        Description
                     </div>
-                    <textarea
-                        class="block w-full px-3 py-2 mt-1 border rounded-md outline-none focus:border-blue-500 hover:border-blue-500"
-                        name="description" rows="5">{{ old('description') }}</textarea>
-                    @error('description')
-                        <div class="text-sm text-red-400 invalid-feedback" style="display: block;">
-                            * {{ $message }}
-                        </div>
-                    @enderror --}}
 
                     <div>
                         <button

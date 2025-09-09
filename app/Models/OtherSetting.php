@@ -17,6 +17,10 @@ class OtherSetting extends Model
         'youtube',
         'googlemap',
         'mainaddress',
+        'linkedin',
+        'tiktok',
+        'twitter',
+        'short_description',
     ];
 }
 

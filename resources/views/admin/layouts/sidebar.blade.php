@@ -198,7 +198,7 @@
                         <path d="M15 13l2 2" />
                     </svg>
 
-                    <span class="mx-1">Our Sales Center</span>
+                    <span class="mx-1">Partners</span>
                 </a>
 
 

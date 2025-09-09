@@ -36,11 +36,12 @@ class IndexController extends Controller
     {
         $services = Service::latest()->limit(4)->get();
         $videos = Video::latest()->limit(4)->get();
-        $about = Page::where('id', 3)->first();
+
         $faqs = Faq::orderBy("order", "asc")->limit(4)->get();
         $teams = Team::latest()->get();
         $offers = Offer::latest()->get();
         $affiliations = Affiliation::orderBy("order", "asc")->get();
+        $partners = Partner::orderBy("order", "asc")->get();
         $tesimonials = Testimonial::first();
         $blogs = Blog::latest()->limit(4)->get();
         $banners = Banner::orderBy("order", "asc")->get();
@@ -50,7 +51,7 @@ class IndexController extends Controller
         $mission = Page::where('id', 4)->first();
         $vision = Page::where('id', 5)->first();
         $corevalue = Page::where('id', 6)->first();
-        return view("frontend.home.index", compact("services", "affiliations", "offers", "best","about","videos", "banners", "tesimonials", "teams", "blogs", 'about', 'faqs', 'popup', 'mission', 'vision', 'corevalue'));
+        return view("frontend.home.index", compact("services", "affiliations", 'partners', "offers", "best", "about", "videos", "banners", "tesimonials", "teams", "blogs", 'about', 'faqs', 'popup', 'mission', 'vision', 'corevalue'));
     }
 
     public function submitInquery(StoreInquiryRequest $request, Product $submitInquery)
@@ -75,7 +76,7 @@ class IndexController extends Controller
             return redirect()->back()->with('error', 'service not found.');
         }
         $title = "Services";
-        return view("frontend.serviceproduct.index", compact('service','title'));
+        return view("frontend.serviceproduct.index", compact('service', 'title'));
 
     }
     public function offers(Offer $offer) // Correct binding
@@ -86,14 +87,23 @@ class IndexController extends Controller
         $title = "Offers";
         $service = $offer;
 
-        return view("frontend.serviceproduct.index", compact('service','title'));
+        return view("frontend.serviceproduct.index", compact('service', 'title'));
+
+    }
+    public function location(Partner $location) // Correct binding
+    {
+
+        $title = "Location";
+        $service = $location;
+
+        return view("frontend.serviceproduct.index", compact('service', 'title'));
 
     }
 
     public function contact()
     {
-        $suppilers = Partner::orderBy("order", 'asc')->get();
-        return view("frontend.contact.index", compact('suppilers'));
+        $partners = Partner::orderBy("order", 'asc')->get();
+        return view("frontend.contact.index", compact('partners'));
     }
 
     public function brochure()

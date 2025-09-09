@@ -16,9 +16,17 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('address')->nullable();
             $table->string('contact_number')->nullable();
+            $table->string('mainaddress')->nullable();
+            $table->longText('googlemap')->nullable();
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('youtube')->nullable();
+
+            $table->longText('short_description')->nullable();
+            $table->longText('twitter')->nullable();
+            $table->longText('tiktok')->nullable();
+            $table->longText('linkedin')->nullable();
+
             $table->timestamps();
         });
     }

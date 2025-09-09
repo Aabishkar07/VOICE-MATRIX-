@@ -25,11 +25,7 @@ class StorePartnerRequest extends FormRequest
             'title' => 'required',
             'description' => 'required',
             'address' => 'required',
-            'number' => 'required',
-
             'order' => 'nullable|numeric',
-            // 'category' => 'required',
-            'featured_image' => 'required',
         ];
     }
 }

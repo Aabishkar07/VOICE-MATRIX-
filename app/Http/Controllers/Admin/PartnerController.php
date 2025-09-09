@@ -18,7 +18,8 @@ class PartnerController extends Controller
      */
     public function __construct(
         protected ImageService $imageservice
-    ) {}
+    ) {
+    }
 
 
     public function index()
@@ -41,18 +42,15 @@ class PartnerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-
+    public function store(StorePartnerRequest $request)
     {
 
 
         $req = $request->all();
-        // $blog_image = $this->imageservice->fileUpload($req["featured_image"], "blog");
-        // $req["featured_image"] = $blog_image;
-        // $req["category_id"] = $request->category;
+
         $req['slug'] = Str::slug($request->title);
 
-        $blog = Partner::create($req);
+        $partner = Partner::create($req);
         return redirect()->route("admin.partners.index")->with("popsuccess", "Partners Added");
     }
 
@@ -67,48 +65,40 @@ class PartnerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(String $id)
+    public function edit(string $id)
     {
 
-        $blog=Partner::find($id);
+        $partner = Partner::find($id);
 
-        return view("admin.partner.edit", compact("blog"));
+        return view("admin.partner.edit", compact("partner"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, String $id)
+    public function update(UpdatePartnerRequest $request, string $id)
     {
 
-        $blog = Partner::find($id);
+        $partner = Partner::find($id);
         $req = $request->all();
-        // if ($request->hasFile('featured_image')) {
-        //     if ($blog->featured_image) {
-        //         $this->imageservice->imageDelete($blog->featured_image);
-        //     }
-        //     $blog_image = $this->imageservice->fileUpload($req["featured_image"], "blog");
-        //     $req['featured_image'] = $blog_image;
-        // }
+
         $req['slug'] = Str::slug($request->title);
         // $req["category_id"] = $request->category;
 
-        $blog->update($req);
+        $partner->update($req);
         return redirect()->route("admin.partners.index")->with("popsuccess", "Partner Edited");
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(String $id)
+    public function destroy(string $id)
     {
-
-
-        $blog=Partner::find($id);
-        if ($blog->featured_image) {
-            $this->imageservice->imageDelete($blog->featured_image);
-        }
-        $blog->delete();
+        $partner = Partner::find($id);
+        // if ($partner->featured_image) {
+        //     $this->imageservice->imageDelete($partner->featured_image);
+        // }
+        $partner->delete();
         return redirect()->route("admin.partners.index")->with("popsuccess", "Partners Deleted");
     }
 }

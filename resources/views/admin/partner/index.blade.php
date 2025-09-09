@@ -20,7 +20,7 @@
 
     <div class="flex items-center">
         <div class="flex-1">
-            <h2 class="w-full text-2xl font-bold text-secondary ">Our Sales Center</h2>
+            <h2 class="w-full text-2xl font-bold text-secondary ">Our Partners</h2>
         </div>
         <div class="text-right "> <a href="{{ route('admin.partners.create') }} "
                 class="flex items-center px-3 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all ease-linear bg-green-700 border border-green-700 rounded outline-none hover:bg-transparent hover:text-green-700 focus:outline-none duration-400 ">
@@ -31,7 +31,7 @@
                     <path d="M12 5l0 14"></path>
                     <path d="M5 12l14 0"></path>
                 </svg>
-                Add Sales Center</a>
+                Add New Partner</a>
         </div>
     </div>
 
@@ -47,10 +47,9 @@
                             <tr>
                                 <th class="px-5 py-3 font-semibold text-left ">
                                     Title</th>
+
                                 <th class="px-5 py-3 font-semibold text-left ">
-                                    Contact Number</th>
-                                    <th class="px-5 py-3 font-semibold text-left ">
-                                       Order</th>
+                                    Order</th>
 
                                 <th class="px-5 py-3 font-semibold text-left ">
                                     Address</th>
@@ -64,31 +63,28 @@
 
 
 
-                        @foreach ($partners as $key => $blog)
+                        @foreach ($partners as $key => $partner)
                             <tbody class="bg-white divide-y divide-gray-200 ">
                                 <tr>
                                     <td class="px-5 py-3 ">
-                                        <p class="text-gray-900 ">{{ $blog->title }}</p>
+                                        <p class="text-gray-900 ">{{ $partner->title }}</p>
+                                    </td>
+                                   
+                                    <td class="px-5 py-3 ">
+                                        <p class="text-gray-900 ">{{ $partner->order }}</p>
                                     </td>
                                     <td class="px-5 py-3 ">
-                                        <p class="text-gray-900 ">{{ $blog->number}}</p>
-                                    </td>
-
-                                    <td class="px-5 py-3 ">
-                                        <p class="text-gray-900 ">{{ $blog->order}}</p>
-                                    </td>
-                                    <td class="px-5 py-3 ">
-                                        <p class="text-gray-900 ">{{ $blog->address}}</p>
+                                        <p class="text-gray-900 ">{{ $partner->address }}</p>
                                     </td>
 
                                     {{-- <td class="p-2" style="width: 100px;">
-                                        <img class="w-full h-full " src="{{ asset('uploads/' . $blog->featured_image) }}"
+                                        <img class="w-full h-full " src="{{ asset('uploads/' . $partner->featured_image) }}"
                                             alt="Card" style="width: 70px;">
                                     </td> --}}
 
                                     <td class="w-48 px-5 py-3 text-sm">
                                         <p class="text-gray-900 ">
-                                            {{ $blog->created_at->format('jS M Y') }}
+                                            {{ $partner->created_at->format('jS M Y') }}
                                         </p>
                                     </td>
 
@@ -96,7 +92,7 @@
                                     <td>
                                         <div class="flex items-center p-2">
 
-                                            <a href=" {{ route('admin.partners.edit', $blog->id) }}">
+                                            <a href=" {{ route('admin.partners.edit', $partner->id) }}">
                                                 <div class="flex px-2 py-1 mx-2 text-white rounded-md bg-slate-500">
                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                         class="icon icon-tabler icon-tabler-edit" width="24"
@@ -116,11 +112,12 @@
                                                 </div>
                                             </a>
 
-                                            <form method="POST" action="{{ route('admin.partners.destroy', $blog->id) }}"
-                                                id="delete-form-{{ $blog->id }}">
+                                            <form method="POST"
+                                                action="{{ route('admin.partners.destroy', $partner->id) }}"
+                                                id="delete-form-{{ $partner->id }}">
                                                 @csrf
                                                 @method('delete')
-                                                <button type="button" onclick="deleteItem({{ $blog->id }})"
+                                                <button type="button" onclick="deleteItem({{ $partner->id }})"
                                                     class="flex px-2 py-1 mx-2 text-white bg-red-500 rounded-md">
                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                         class="icon icon-tabler icon-tabler-trash" width="24"

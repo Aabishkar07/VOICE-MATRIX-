@@ -51,6 +51,9 @@
                             </div>
 
 
+
+
+
                             <div class="w-full px-3 mt-4 md:w-1/2">
                                 <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
                                     for="grid-last-name">
@@ -58,7 +61,8 @@
                                 </label>
                                 <input
                                     class="border bg-slate-50 font-normal border-gray-300 p-3 rounded focus:border-[#7065d4] hover:border-[#7065d4] w-full focus:outline-non "
-                                    id="grid-last-name" type="text" value="{{ $setting->mainaddress ?? '' }}" name="main_address">
+                                    id="grid-last-name" type="text" value="{{ $setting->mainaddress ?? '' }}"
+                                    name="main_address">
                             </div>
                             <div class="w-full px-3 mt-4 md:w-1/2">
                                 <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
@@ -70,6 +74,16 @@
                                     id="grid-last-name" type="text" value="{{ $setting->googlemap ?? '' }}"
                                     name="googlemap">
                             </div>
+                        </div>
+
+                        <div class="w-full  mt-4 ">
+                            <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+                                for="grid-last-name">
+                                Short Description
+                            </label>
+                            <textarea
+                                class="border bg-slate-50 font-normal border-gray-300 p-3 rounded focus:border-[#7065d4] hover:border-[#7065d4] w-full focus:outline-non "
+                                id="grid-last-name" name="short_description">{{ $setting->short_description ?? '' }}</textarea>
                         </div>
                         {{-- <div class="flex flex-wrap mb-6 -mx-3">
                         <div class="w-full px-3">
@@ -115,6 +129,24 @@
                                 <input
                                     class="border bg-slate-50 font-normal border-gray-300 p-3 rounded focus:border-[#7065d4] hover:border-[#7065d4] w-full focus:outline-non "
                                     id="grid-city" type="text" value="{{ $setting->youtube ?? '' }}" name="youtube">
+                            </div>
+                            <div class="w-full px-3 mb-6 md:w-1/3 md:mb-0">
+                                <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+                                    for="grid-city">
+                                    Twitter
+                                </label>
+                                <input
+                                    class="border bg-slate-50 font-normal border-gray-300 p-3 rounded focus:border-[#7065d4] hover:border-[#7065d4] w-full focus:outline-non "
+                                    id="grid-city" type="text" value="{{ $setting->twitter ?? '' }}" name="twitter">
+                            </div>
+                            <div class="w-full px-3 mb-6 md:w-1/3 md:mb-0">
+                                <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+                                    for="grid-city">
+                                    Tiktok
+                                </label>
+                                <input
+                                    class="border bg-slate-50 font-normal border-gray-300 p-3 rounded focus:border-[#7065d4] hover:border-[#7065d4] w-full focus:outline-non "
+                                    id="grid-city" type="text" value="{{ $setting->tiktok ?? '' }}" name="tiktok">
                             </div>
 
 

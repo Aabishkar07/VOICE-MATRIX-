@@ -11,11 +11,11 @@
                 <path d="M5 12l6 -6"></path>
             </svg>
         </a>
-        <div class="text-xl font-bold">Edit Sales Center</div>
+        <div class="text-xl font-bold">Edit Partner</div>
     </div>
 
     <div class="bg-white rounded-lg shadow-md ">
-        <form action="{{ route('admin.partners.update', $blog->id) }}" method="POST" class="space-y-6"
+        <form action="{{ route('admin.partners.update', $partner->id) }}" method="POST" class="space-y-6"
             enctype="multipart/form-data">
             @csrf
             @method('put')
@@ -30,7 +30,7 @@
                             <input
                                 class="w-full p-3 mt-3 text-xs border border-gray-300 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 hover:border-blue-500"
                                 name="title" placeholder="Enter Title Here" type="text"
-                                value="{{ old('title', $blog->title) }}" required/>
+                                value="{{ old('title', $partner->title) }}" required />
                             @error('title')
                                 <div class="text-sm text-red-400 invalid-feedback" style="display: block;">
                                     * {{ $message }}
@@ -42,7 +42,7 @@
 
 
 
-                    <div>
+                    {{-- <div>
                         <label class="w-full text-sm font-semibold" htmlFor="">
                             Contact number
                         </label>
@@ -51,14 +51,14 @@
                             <input
                                 class="w-full p-3 mt-3 text-xs border border-gray-300 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 hover:border-blue-500"
                                 name="number" placeholder="Enter order Here" type="number"
-                                value="{{ old('number', $blog->number) }}" required/>
+                                value="{{ old('number', $partner->number) }}" required/>
                             @error('number')
                                 <div class="text-sm text-red-400 invalid-feedback" style="display: block;">
                                     * {{ $message }}
                                 </div>
                             @enderror
                         </div>
-                    </div>
+                    </div> --}}
 
 
                     <div>
@@ -70,7 +70,7 @@
                             <input
                                 class="w-full p-3 mt-3 text-xs border border-gray-300 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 hover:border-blue-500"
                                 name="address" placeholder="Enter order Here" type="text"
-                                value="{{ old('order', $blog->address) }}" required/>
+                                value="{{ old('order', $partner->address) }}" required />
                             @error('address')
                                 <div class="text-sm text-red-400 invalid-feedback" style="display: block;">
                                     * {{ $message }}
@@ -90,7 +90,7 @@
                             <input
                                 class="w-full p-3 mt-3 text-xs border border-gray-300 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 hover:border-blue-500"
                                 name="order" placeholder="Enter order Here" type="number"
-                                value="{{ old('order', $blog->order) }}" required/>
+                                value="{{ old('order', $partner->order) }}" required />
                             @error('order')
                                 <div class="text-sm text-red-400 invalid-feedback" style="display: block;">
                                     * {{ $message }}
@@ -99,7 +99,16 @@
                         </div>
                     </div>
 
-
+                    <div>
+                        <textarea
+                            class="w-full tinymce p-3 mt-3 text-xs border border-gray-300 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500 hover:border-blue-500"
+                            name="description" placeholder="Enter description Here" type="text" required>{{ old('description', $partner->description) }}</textarea>
+                        @error('description')
+                            <div class="text-sm text-red-400 invalid-feedback" style="display: block;">
+                                * {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
 
 
 
@@ -110,7 +119,7 @@
                                 class="image hover:border-blue-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 "
                                 onchange="loadFile(event)" />
                         </div>
-                        <img class="oldimage" src="{{ asset('/uploads/' . $blog->featured_image) }}" alt="Card"
+                        <img class="oldimage" src="{{ asset('/uploads/' . $partner->featured_image) }}" alt="Card"
                             style="width: 70px;margin-bottom:2px;">
                         <img id="output" style="width: 70px; margin-bottom: 2px;" />
 
@@ -127,7 +136,7 @@
                     </div>
                     <textarea
                         class="block w-full px-3 py-2 mt-1 border rounded-md outline-none focus:border-blue-500 hover:border-blue-500"
-                        name="description" rows="5">{{ old('description', $blog->description) }}</textarea>
+                        name="description" rows="5">{{ old('description', $partner->description) }}</textarea>
                     @error('description')
                         <div class="text-sm text-red-400 invalid-feedback" style="display: block;">
                             * {{ $message }}

@@ -27,19 +27,6 @@ function getproducts()
 }
 
 
-//     function getServicesWithProducts() {
-//         // $services = Service::get();
-// $parent_id=0;
-
-// $services=Service::where('parent_id', $parent_id)->get();
-
-//         foreach ($services as $service) {
-//             $service->products = Product::where('service_id', $service->id)->latest()->get();
-//         }
-
-//         return $services;
-//     }
-
 
 
 function getServicesWithProducts($parent_id) {
