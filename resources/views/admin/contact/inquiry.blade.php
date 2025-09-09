@@ -28,7 +28,7 @@
 
     <div class="py-3 ">
         <div class="mt-1">
-            <div class="relative mt-2 text-white bg-green-700 shadow product-tablerounded-lg ">
+            <div class="relative mt-2 text-white bg-[#ff3131] shadow product-tablerounded-lg ">
                 <div class="overflow-x-auto ">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="">

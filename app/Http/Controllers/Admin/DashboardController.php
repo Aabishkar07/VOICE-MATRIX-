@@ -33,11 +33,8 @@ class DashboardController extends Controller
         $blogcount=Blog::count();
         $contactcount=Contact::count();
         $suppilercount=Partner::count();
-        $reviewcount=Testimonial::count();
-        $productcount=Product::count();
-        $videocount=Video::count();
-        $inquirycount=Inquiry::count();
 
-        return view("admin.dashboard.index",compact("servicecount","inquirycount","blogcount","reviewcount","contactcount","suppilercount","productcount","videocount"));
+
+        return view("admin.dashboard.index",compact("servicecount","blogcount","suppilercount","contactcount"));
     }
 }

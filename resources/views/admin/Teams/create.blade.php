@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('page_title', 'Admin - Add Banner')
-@section('banner_select', 'bg-green-700 text-white')
+@section('banner_select', 'bg-[#ff3131] text-white')
 @section('body')
     <div class="flex gap-4">
         <a href="{{ route('admin.teams.index') }}">
@@ -155,7 +155,7 @@
 
                     <div class="">
                         <button
-                            class="px-4 py-2 mt-3 mr-2 text-white bg-green-700 border rounded-md border-bg-green-700">
+                            class="px-4 py-2 mt-3 mr-2 text-white bg-[#ff3131] border rounded-md border-bg-[#ff3131]">
                             Submit
                         </button>
                     </div>

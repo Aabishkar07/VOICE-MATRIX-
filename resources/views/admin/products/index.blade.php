@@ -23,7 +23,7 @@
             <h2 class="w-full text-2xl font-bold text-secondary ">Products</h2>
         </div>
         <div class="text-right "> <a href="{{ route('admin.products.create') }} "
-                class="flex items-center px-3 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all ease-linear bg-green-700 border border-green-700 rounded outline-none hover:bg-transparent hover:text-green-700 focus:outline-none duration-400 ">
+                class="flex items-center px-3 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all ease-linear bg-[#ff3131] border border-[#ff3131] rounded outline-none hover:bg-transparent hover:text-[#ff3131] focus:outline-none duration-400 ">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24"
                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
                     stroke-linejoin="round">
@@ -39,7 +39,7 @@
     <div class="py-3 ">
         <div class="mt-1">
             {{-- -mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto z-[0] max-h-screen overflow-y-auto --}}
-            <div class="relative mt-10 text-white bg-green-700 shadow product-tablerounded-lg ">
+            <div class="relative mt-10 text-white bg-[#ff3131] shadow product-tablerounded-lg ">
                 <div class="overflow-x-auto ">
                     {{-- max-h-screen min-w-full shadow rounded-lg z-[0] overflow-y-hidden --}}
                     <table class="min-w-full divide-y divide-gray-200">
@@ -83,7 +83,7 @@
 
 
                                     <td class="p-3 pr-0 ">
-                                        <span class="font-semibold text-light-inverse text-xs {{ $product->status == 'active' ? 'bg-green-500 text-white rounded-md p-1' : 'bg-red-500 text-white rounded-md p-1' }}">
+                                        <span class="font-semibold text-light-inverse text-xs {{ $product->status == 'active' ? 'bg-[#ff3131] text-white rounded-md p-1' : 'bg-red-500 text-white rounded-md p-1' }}">
                                             {{ $product->status}}</span>
                                     </td>
 

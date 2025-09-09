@@ -14,7 +14,7 @@
 
                     <a href="{{ route('admin.videos.create') }}" class="">
                         <button
-                            class="px-3 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-200 ease-linear bg-green-700 border border-green-700 rounded outline-none hover:bg-transparent hover:text-green-700 focus:outline-none"
+                            class="px-3 py-2 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-200 ease-linear bg-[#ff3131] border border-[#ff3131] rounded outline-none hover:bg-transparent hover:text-[#ff3131] focus:outline-none"
                             type="button">Add Video
                         </button>
                     </a>
@@ -29,7 +29,7 @@
         <div class="">
             <div class="mt-1">
 
-                <div class="relative mt-10 text-white bg-green-700 shadow product-tablerounded-lg ">
+                <div class="relative mt-10 text-white bg-[#ff3131] shadow product-tablerounded-lg ">
                     <div class="overflow-x-auto ">
                         {{-- max-h-screen min-w-full shadow rounded-lg z-[0] overflow-y-hidden --}}
                         <table class="min-w-full divide-y divide-gray-200">

@@ -155,7 +155,7 @@
 
                         </div>
                         <button type="submit"
-                            class="px-10 py-1 mt-3 mr-2 text-xl font-semibold text-green-700 bg-white border border-green-700 rounded-md hover:border-green-700 hover:text-white hover:bg-green-700">
+                            class="px-10 py-1 mt-3 mr-2 text-xl font-semibold text-[#ff3131] bg-white border border-[#ff3131] rounded-md hover:border-[#ff3131] hover:text-white hover:bg-[#ff3135]">
                             Save
                         </button>
                     </form>

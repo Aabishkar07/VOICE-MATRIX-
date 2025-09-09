@@ -47,10 +47,10 @@
 
         <!-- Navigation Buttons -->
         <div class="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-6 z-10">
-            <button id="prevBtn" class="px-8 py-3 bg-green-500 text-white text-lg rounded-lg hover:bg-white hover:text-green-500 border border-green-500 transition-colors">
+            <button id="prevBtn" class="px-8 py-3 bg-[#ff3131] text-white text-lg rounded-lg hover:bg-white hover:text-[#ff3131] border border-[#ff3131] transition-colors">
                 Previous
             </button>
-            <button id="nextBtn" class="px-8 py-3 bg-green-500 text-white text-lg rounded-lg hover:bg-white hover:text-green-500 border border-green-500 transition-colors">
+            <button id="nextBtn" class="px-8 py-3 bg-[#ff3131] text-white text-lg rounded-lg hover:bg-white hover:text-[#ff3131] border border-[#ff3131] transition-colors">
                 Next
             </button>
         </div>

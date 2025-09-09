@@ -92,7 +92,7 @@
 
                     <div>
                         <button
-                            class="px-4 py-1 mt-3 mr-2 text-white bg-green-700 rounded-md  hover:bg-green-700 hover:text-white">
+                            class="px-4 py-1 mt-3 mr-2 text-white bg-[#ff3131] rounded-md  hover:bg-[#ff3135] hover:text-white">
                             Add
                         </button>
                     </div>

@@ -17,19 +17,25 @@
                         <li class="inline-flex items-center">
                             <a href="{{ route('home') }}"
                                 class="inline-flex items-center text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200">
-                                <i class="fas fa-home mr-2"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 mr-2" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l9-9 9 9M4 10v10h6v-6h4v6h6V10" />
+                                </svg>
                                 Home
                             </a>
                         </li>
                         <li>
                             <div class="flex items-center">
-                                <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 text-gray-400 mx-2" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
                                 <span class="text-sm font-medium text-gray-300">{{$title}}</span>
                             </div>
                         </li>
                         <li aria-current="page">
                             <div class="flex items-center">
-                                <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 text-gray-400 mx-2" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
                                 <span class="text-sm font-medium" style="color: #ff3131;">{{ $service->title }}</span>
                             </div>
                         </li>
@@ -66,7 +72,9 @@
                             <a href="{{ route('contact') }}"
                                 class="inline-flex items-center px-8 py-3 font-semibold rounded-lg transition-colors duration-200"
                                 style="background-color: #ff3131; color: white; hover:opacity: 0.9;">
-                                <i class="fas fa-phone mr-2"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 mr-2" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h2l2 4-2 2a16 16 0 006 6l2-2 4 2v2a2 2 0 01-2 2h-1C9.82 21 3 14.18 3 6V5z" />
+                                </svg>
                                 Contact Us
                             </a>
                             {{-- <a href="{{ route('home') }}#services"

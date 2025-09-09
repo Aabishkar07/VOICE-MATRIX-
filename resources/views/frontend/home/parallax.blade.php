@@ -7,7 +7,7 @@
 
                 {{-- <marquee   behavior="scroll" scrollamount="3" class="w-56 max-sm:w-56 max-lg:w-96 xl:w-80">
                     <div
-                        class="px-1 text-2xl font-bold tracking-wider text-center text-green-700 max-sm:text-lg lg:text-xl xl:text-2xl ">
+                        class="px-1 text-2xl font-bold tracking-wider text-center text-[#ff3131] max-sm:text-lg lg:text-xl xl:text-2xl ">
                         सौर्य कृषि कम्पनी लिमिटेड
 
                     </div>

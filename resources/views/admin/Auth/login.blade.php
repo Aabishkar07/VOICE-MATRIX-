@@ -55,13 +55,13 @@
                 </p>
                 <label for="username">Email</label>
                 <input type="text" name="email" id="username"
-                    class="text-xs border border-gray-300 p-3 rounded mt-3 focus:border-green-500 hover:border-black">
+                    class="text-xs border border-gray-300 p-3 rounded mt-3 focus:border-[#ff3131] hover:border-black">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password"
-                    class="text-xs border border-gray-300 p-3 rounded mt-3 focus:border-green-500 hover:border-black">
+                    class="text-xs border border-gray-300 p-3 rounded mt-3 focus:border-[#ff3131] hover:border-black">
                 <div class="flex justify-center mt-5">
                     <button type="submit"
-                        class="border mt-3 border-primary py-1 w-[100%] rounded-md mr-2 text-white bg-green-700  ">
+                        class="border mt-3 border-primary py-1 w-[100%] rounded-md mr-2 text-white bg-[#ff3131]  ">
                         Login
                     </button>
                 </div>

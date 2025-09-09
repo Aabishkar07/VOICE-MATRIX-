@@ -58,7 +58,7 @@
 
                     <div class="mt-6">
                         <button
-                            class="bg-green-700  border-green-700 border hover:bg-transparent hover:text-green-700 text-white py-2 text-xs font-bold uppercase px-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-200"
+                            class="bg-[#ff3131]  border-[#ff3131] border hover:bg-transparent hover:text-[#ff3131] text-white py-2 text-xs font-bold uppercase px-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-200"
                             type="submit">Edit Video
                         </button>
 

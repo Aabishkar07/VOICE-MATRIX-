@@ -1,11 +1,11 @@
 @if (Session::has('success'))
     <div class="alert alert-danger mb-4">
-        <div class="bg-green-100 border  max-sm:text-sm border-green-400 text-green-700 px-4 py-3 rounded relative"
+        <div class="bg-[#ff3131] border  max-sm:text-sm border-[#ff3131] text-[#ff3131] px-4 py-3 rounded relative"
             role="alert" style="height: 50px;">
             <p>{{ Session::get('success') }}</p>
             <button type="button" class="absolute top-0 right-0 mt-1 mr-2 close-button" data-dismiss="alert"
                 aria-label="Close">
-                <span class="text-green-700">&times;</span>
+                <span class="text-[#ff3131]">&times;</span>
             </button>
         </div>
     </div>
@@ -95,7 +95,7 @@
         class="fixed bottom-0 z-[999] right-4 flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow opacity-0 transform scale-95 transition-all duration-300 ease-in-out"
         role="alert">
         <div
-            class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg">
+            class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-[#ff3131] bg-[#ff3131] rounded-lg">
             <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                 viewBox="0 0 20 20">
                 <path

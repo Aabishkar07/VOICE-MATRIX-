@@ -23,7 +23,7 @@
             <h2 class="w-full text-2xl font-bold text-secondary ">Gallery</h2>
         </div>
         <div class="text-right "> <a href="{{ route('admin.gallery.create') }} "
-                class="flex green-700 items-center border-[#fe0000] border hover:bg-transparent hover:text-[#fe0000] text-white py-2 text-xs font-bold uppercase px-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-400 ">
+                class="flex [#ff3131] items-center border-[#fe0000] border hover:bg-transparent hover:text-[#fe0000] text-white py-2 text-xs font-bold uppercase px-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-400 ">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24"
                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
                     stroke-linejoin="round">
@@ -39,7 +39,7 @@
     <div class="py-3 ">
         <div class="mt-1">
             {{-- -mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto z-[0] max-h-screen overflow-y-auto --}}
-            <div class="relative mt-10 text-white shadow green-700 product-tablerounded-lg ">
+            <div class="relative mt-10 text-white shadow [#ff3131] product-tablerounded-lg ">
                 <div class="overflow-x-auto ">
                     {{-- max-h-screen min-w-full shadow rounded-lg z-[0] overflow-y-hidden --}}
                     <table class="divide-y divide-gray-200">

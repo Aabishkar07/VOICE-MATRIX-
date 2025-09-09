@@ -167,7 +167,7 @@
 
                     <div class="">
                         <button
-                            class="border mt-3 border-bg-green-700 px-4 py-2 rounded-md mr-2 text-white bg-green-700">
+                            class="border mt-3 border-bg-[#ff3131] px-4 py-2 rounded-md mr-2 text-white bg-[#ff3131]">
                             Submit
                         </button>
                     </div>

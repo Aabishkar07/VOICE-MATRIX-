@@ -179,10 +179,10 @@
 
             <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center space-x-8">
-                <a href="{{ route('home') }}" class="text-gray-700 hover:text-[#050a30] font-medium">Home</a>
-                <a href="{{ route('about') }}" class="text-gray-700 hover:text-[#050a30] font-medium">About Us</a>
-                <a href="{{ route('allblogs') }}" class="text-gray-700 hover:text-[#050a30] font-medium">Blog</a>
-                <a href="{{ route('contact') }}" class="text-gray-700 hover:text-[#050a30] font-medium">Contacts</a>
+                <a href="{{ route('home') }}" class="{{ request()->is('/') ? 'text-[#ff3131]' : 'text-gray-700' }} hover:text-[#050a30] font-medium">Home</a>
+                <a href="{{ route('about') }}" class="{{ request()->is('about') ? 'text-[#ff3131]' : 'text-gray-700' }} hover:text-[#050a30] font-medium">About Us</a>
+                <a href="{{ route('allblogs') }}" class="{{ request()->is('allblogs') ? 'text-[#ff3131]' : 'text-gray-700' }} hover:text-[rgb(5,10,48)] font-medium">Blog</a>
+                <a href="{{ route('contact') }}" class="{{ request()->is('contact') ? 'text-[#ff3131]' : 'text-gray-700' }} hover:text-[#050a30] font-medium">Contacts</a>
 
                 <!-- CTA Button -->
                 <a href="{{ route('contact') }}"
@@ -276,13 +276,13 @@
                 <!-- Primary Links -->
                 <nav class="space-y-1 mb-4">
                     <a href="{{ route('home') }}"
-                        class="block py-2 text-gray-800 hover:text-[#050a30] font-medium">Home</a>
+                        class="{{ request()->is('/') ? 'text-[#ff3131]' : 'text-gray-700' }} block py-2 text-gray-800 hover:text-[#050a30] font-medium">Home</a>
                     <a href="{{ route('about') }}"
-                        class="block py-2 text-gray-800 hover:text-[#050a30] font-medium">About Us</a>
+                        class="{{ request()->is('about') ? 'text-[#ff3131]' : 'text-gray-700' }} block py-2 text-gray-800 hover:text-[#050a30] font-medium">About Us</a>
                     <a href="{{ route('allblogs') }}"
-                        class="block py-2 text-gray-800 hover:text-[#050a30] font-medium">Blog</a>
+                        class="{{ request()->is('allblogs') ? 'text-[#ff3131]' : 'text-gray-700' }} block py-2 text-gray-800 hover:text-[#050a30] font-medium">Blog</a>
                     <a href="{{ route('contact') }}"
-                        class="block py-2 text-gray-800 hover:text-[#050a30] font-medium">Contacts</a>
+                        class="{{ request()->is('contact') ? 'text-[#ff3131]' : 'text-gray-700' }} block py-2 text-gray-800 hover:text-[#050a30] font-medium">Contacts</a>
                 </nav>
 
 

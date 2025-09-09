@@ -19,8 +19,8 @@
                         <div>
                             <h3 class="text-xl font-semibold text-gray-900 mb-2">Share on Facebook</h3>
                             <p class="text-gray-600">Connect with your friends and professional network.</p>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}" 
-                               target="_blank" 
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}"
+                               target="_blank"
                                class="inline-block mt-2 text-blue-600 hover:text-blue-800 font-medium">
                                 Share Now →
                             </a>
@@ -34,8 +34,8 @@
                         <div>
                             <h3 class="text-xl font-semibold text-gray-900 mb-2">Tweet This Article</h3>
                             <p class="text-gray-600">Share with your Twitter followers and spark conversations.</p>
-                            <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->fullUrl()) }}&text={{ urlencode($blog->title) }}" 
-                               target="_blank" 
+                            <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->fullUrl()) }}&text={{ urlencode($blog->title) }}"
+                               target="_blank"
                                class="inline-block mt-2 text-sky-600 hover:text-sky-800 font-medium">
                                 Tweet Now →
                             </a>
@@ -49,8 +49,8 @@
                         <div>
                             <h3 class="text-xl font-semibold text-gray-900 mb-2">Share on LinkedIn</h3>
                             <p class="text-gray-600">Share with your professional network and colleagues.</p>
-                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(request()->fullUrl()) }}" 
-                               target="_blank" 
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(request()->fullUrl()) }}"
+                               target="_blank"
                                class="inline-block mt-2 text-blue-700 hover:text-blue-900 font-medium">
                                 Share Now →
                             </a>
@@ -58,14 +58,14 @@
                     </div>
 
                     <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-link text-green-600 text-xl"></i>
+                        <div class="w-12 h-12 bg-[#ff3131] rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-link text-[#ff3131] text-xl"></i>
                         </div>
                         <div>
                             <h3 class="text-xl font-semibold text-gray-900 mb-2">Copy Link</h3>
                             <p class="text-gray-600">Copy the article URL to share anywhere you want.</p>
-                            <button onclick="copyToClipboard('{{ request()->fullUrl() }}')" 
-                                    class="inline-block mt-2 text-green-600 hover:text-green-800 font-medium">
+                            <button onclick="copyToClipboard('{{ request()->fullUrl() }}')"
+                                    class="inline-block mt-2 text-[#ff3131] hover:text-[#ff3131] font-medium">
                                 Copy URL →
                             </button>
                         </div>
@@ -107,7 +107,7 @@
                         </div>
 
                         <!-- Share Badge -->
-                        <div class="absolute -bottom-2 -right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse">
+                        <div class="absolute -bottom-2 -right-2 bg-[#ff3131] text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse">
                             <i class="fas fa-share-alt"></i>
                         </div>
                     </div>
@@ -136,10 +136,10 @@ function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(function() {
         // Show success message
         const toast = document.createElement('div');
-        toast.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300';
+        toast.className = 'fixed top-4 right-4 bg-[#ff3131] text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300';
         toast.innerHTML = '<i class="fas fa-check mr-2"></i>Link copied to clipboard!';
         document.body.appendChild(toast);
-        
+
         setTimeout(() => {
             toast.style.transform = 'translateX(100%)';
             setTimeout(() => document.body.removeChild(toast), 300);

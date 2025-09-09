@@ -85,7 +85,7 @@
                                             <i class="fab fa-linkedin-in"></i>
                                         </a>
                                         <button onclick="copyToClipboard('{{ request()->fullUrl() }}')"
-                                            class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition-colors">
+                                            class="w-10 h-10 bg-[#ff3131] text-white rounded-full flex items-center justify-center hover:bg-[#ff3135] transition-colors">
                                             <i class="fas fa-link"></i>
                                         </button>
                                     </div>
@@ -201,7 +201,7 @@
         navigator.clipboard.writeText(text).then(function() {
             // Show success message
             const toast = document.createElement('div');
-            toast.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300';
+            toast.className = 'fixed top-4 right-4 bg-[#ff3131] text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300';
             toast.innerHTML = '<i class="fas fa-check mr-2"></i>Link copied to clipboard!';
             document.body.appendChild(toast);
 

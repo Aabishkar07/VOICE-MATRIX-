@@ -15,7 +15,7 @@
             </a>
             <marquee behavior="scroll" scrollamount="3" class="w-56 max-sm:w-56 max-lg:w-96 xl:w-80">
                 <div
-                    class="px-1 text-2xl font-bold tracking-wider text-center text-green-700 max-sm:text-lg lg:text-xl xl:text-2xl ">
+                    class="px-1 text-2xl font-bold tracking-wider text-center text-[#ff3131] max-sm:text-lg lg:text-xl xl:text-2xl ">
                     सौर्य कृषि कम्पनी लिमिटेड
                     {{-- &nbsp;&nbsp;
                     Voice Matrix BPO SERVICES PVT LTD --}}
@@ -28,7 +28,7 @@
 
         {{-- </marquee> --}}
 
-        {{-- <div class="p-4 text-4xl font-bold tracking-wider text-center text-green-700 md:text-6xl lg:text-7xl">
+        {{-- <div class="p-4 text-4xl font-bold tracking-wider text-center text-[#ff3131] md:text-6xl lg:text-7xl">
             सौर्य कृषि कम्पनी लिमिटेड
           </div> --}}
 
@@ -70,14 +70,14 @@
                 </div>
                 <li class='px-3 max-lg:border-b max-lg:py-3'>
                     <a href="{{ route('home') }}"
-                        class='hover:text-green-500 text-[#333] block font-bold text-[17px] {{ request()->routeIs('home') ? ' text-green-500' : '' }}'>Home</a>
+                        class='hover:text-[#ff3131] text-[#333] block font-bold text-[17px] {{ request()->routeIs('home') ? ' text-[#ff3131]' : '' }}'>Home</a>
                 </li>
                 {{-- <li class='px-3 max-lg:border-b max-lg:py-3'><a href='{{ route('about') }}'
-                        class='hover:text-green-500 text-[#333] block font-bold text-[17px] {{ request()->routeIs('about') ? ' text-green-500' : '' }}'>About
+                        class='hover:text-[#ff3131] text-[#333] block font-bold text-[17px] {{ request()->routeIs('about') ? ' text-[#ff3131]' : '' }}'>About
                         Us</a> --}}
                 <li class='relative group max-lg:border-b max-lg:px-3 max-lg:py-3'>
                     <a href='{{ route('about') }}'
-                        class='hover:text-green-500 text-[#333] block font-bold text-[17px]'>About Us
+                        class='hover:text-[#ff3131] text-[#333] block font-bold text-[17px]'>About Us
                         <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" class="inline-block ml-1"
                             viewBox="0 0 24 24">
                             <path
@@ -92,7 +92,7 @@
 
                         <li class='py-3 border-b'>
                             <a href='{{ route('brochure') }}'
-                                class='hover:text-green-500 hover:fill-gray-800 text-gray-600 font-semibold text-[17px] block'>
+                                class='hover:text-[#ff3131] hover:fill-gray-800 text-gray-600 font-semibold text-[17px] block'>
 
                                 Brochure
                             </a>
@@ -102,7 +102,7 @@
 
                         <li class='py-3 border-b'>
                             <a href='{{ route('notice') }}'
-                                class='hover:text-green-500 hover:fill-gray-800 text-gray-600 font-semibold text-[17px] block'>
+                                class='hover:text-[#ff3131] hover:fill-gray-800 text-gray-600 font-semibold text-[17px] block'>
 
                                 Notice
                             </a>
@@ -111,7 +111,7 @@
 
                         <li class='py-3 border-b'>
                             <a href='{{ route('certificates') }}'
-                                class='hover:text-green-500 hover:fill-gray-800 text-gray-600 font-semibold text-[17px] block'>
+                                class='hover:text-[#ff3131] hover:fill-gray-800 text-gray-600 font-semibold text-[17px] block'>
 
                                Certificates
                             </a>
@@ -122,7 +122,7 @@
                 </li>
                 {{-- <li class='relative group max-lg:border-b max-lg:px-3 max-lg:py-3'>
                     <a href='javascript:void(0)'
-                        class='hover:text-green-500 text-[#333] block font-bold text-[17px]'>Our Products
+                        class='hover:text-[#ff3131] text-[#333] block font-bold text-[17px]'>Our Products
                         <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" class="inline-block ml-1"
                             viewBox="0 0 24 24">
                             <path
@@ -135,7 +135,7 @@
                         @foreach (getServices() as $key => $value)
                             <div class='py-3 border-b '>
                                 <a href='{{ route('servicesingle', $value->slug) }}'
-                                    class='hover:text-green-500 hover:fill-gray-800 text-gray-600 font-semibold text-[15px] block flex items-center gap-x-1'>
+                                    class='hover:text-[#ff3131] hover:fill-gray-800 text-gray-600 font-semibold text-[15px] block flex items-center gap-x-1'>
                                     <img src="{{ asset('uploads/' . $value->image) }}" alt=""
                                         class="object-contain rounded-full w-9 h-9" />
 
@@ -167,7 +167,7 @@
 
 
                 <div class="relative inline-block">
-                    <button id="category-btn" class="flex hover:text-green-500 text-[#333] block font-bold text-[17px]">
+                    <button id="category-btn" class="flex hover:text-[#ff3131] text-[#333] block font-bold text-[17px]">
                         Our Product
                         <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px"
                             class="inline-block ml-1 mt-1" viewBox="0 0 24 24">
@@ -296,7 +296,7 @@
 
                 {{-- <li class='relative group max-lg:border-b max-lg:px-3 max-lg:py-3'>
                     <a href='javascript:void(0)'
-                        class='hover:text-green-500 text-[#333] block font-bold text-[17px]'>Our Products
+                        class='hover:text-[#ff3131] text-[#333] block font-bold text-[17px]'>Our Products
                         <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" class="inline-block ml-1"
                             viewBox="0 0 24 24">
                             <path
@@ -311,7 +311,7 @@
 
                             <li class='py-3 border-b relative group'>
                                 <a href='{{ route('servicesingle', $service->slug) }}'
-                                    class='hover:text-green-500 hover:fill-gray-800 text-gray-600 font-semibold text-[15px] block flex items-center gap-x-1'>
+                                    class='hover:text-[#ff3131] hover:fill-gray-800 text-gray-600 font-semibold text-[15px] block flex items-center gap-x-1'>
                                     <img src="{{ asset('uploads/' . $service->image) }}" alt=""
                                         class="object-contain rounded-full w-9 h-9" />
                                     {{ $service->title }}
@@ -324,7 +324,7 @@
                                         @foreach ($service->products as $product)
                                             <li>
                                                 <a href='{{ route('productsingle', $product->slug) }}'
-                                                    class='hover:text-green-500 text-gray-700 block'>
+                                                    class='hover:text-[#ff3131] text-gray-700 block'>
                                                     {{ $product->title }}
                                                 </a>
                                             </li>
@@ -343,7 +343,7 @@
 
                 <li class='relative group max-lg:border-b max-lg:px-3 max-lg:py-3'>
                     <a href='javascript:void(0)'
-                        class='hover:text-green-500 text-[#333] block font-bold text-[17px]'>Gallery
+                        class='hover:text-[#ff3131] text-[#333] block font-bold text-[17px]'>Gallery
                         <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" class="inline-block ml-1"
                             viewBox="0 0 24 24">
                             <path
@@ -357,21 +357,21 @@
 
 
                             <a href='{{ route('videos') }}'
-                                class='hover:text-green-500 hover:fill-gray-800 text-gray-600 font-semibold text-[17px] block'>
+                                class='hover:text-[#ff3131] hover:fill-gray-800 text-gray-600 font-semibold text-[17px] block'>
 
                                 Videos
                             </a>
                         </li> --}}
                         <li class='py-3 border-b'>
                             <a href='{{ route('allgallery') }}'
-                                class='hover:text-green-500 hover:fill-gray-800 text-gray-600 font-semibold text-[17px] block'>
+                                class='hover:text-[#ff3131] hover:fill-gray-800 text-gray-600 font-semibold text-[17px] block'>
 
                                 Gallery
                             </a>
                         </li>
                         <li class='py-3 border-b'>
                             <a href='{{ route('salescenter') }}'
-                                class='hover:text-green-500 hover:fill-gray-800 text-gray-600 font-semibold text-[17px] block'>
+                                class='hover:text-[#ff3131] hover:fill-gray-800 text-gray-600 font-semibold text-[17px] block'>
 
                                 Sales Center </a>
                         </li>
@@ -381,11 +381,11 @@
                 </li>
 
                 <li class='px-3 max-lg:border-b max-lg:py-3'><a href={{ route('faqs') }}
-                        class='hover:text-green-500 text-[#333] block font-bold text-[17px] {{ request()->routeIS('faqs') ? 'text-green-500' : '' }}'>Faqs</a>
+                        class='hover:text-[#ff3131] text-[#333] block font-bold text-[17px] {{ request()->routeIS('faqs') ? 'text-[#ff3131]' : '' }}'>Faqs</a>
                 </li>
 
                 <li class='px-3 max-lg:border-b max-lg:py-3'><a href={{ route('contact') }}
-                        class='hover:text-green-500 text-[#333] block font-bold text-[17px] {{ request()->routeIS('contact') ? 'text-green-500' : '' }}'>Contact</a>
+                        class='hover:text-[#ff3131] text-[#333] block font-bold text-[17px] {{ request()->routeIS('contact') ? 'text-[#ff3131]' : '' }}'>Contact</a>
                 </li>
 
             </di>

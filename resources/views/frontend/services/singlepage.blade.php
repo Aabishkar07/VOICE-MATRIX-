@@ -127,7 +127,7 @@
 
 
                 <!-- Modal Footer -->
-                <button id="confirmBtn" type="submit" class="px-4 py-2 text-white bg-green-500 rounded hover:bg-green-600">
+                <button id="confirmBtn" type="submit" class="px-4 py-2 text-white bg-[#ff3131] rounded hover:bg-[#ff3131]">
                     Confirm
                 </button>
 
