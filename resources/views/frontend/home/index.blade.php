@@ -3,7 +3,7 @@
 {{-- @include('frontend.home.popup') --}}
 
     @include('frontend.home.banner')
-    @include('frontend.home.about')
+    @include('frontend.home.homeabout')
 
     @include('frontend.home.offers')
     @include('frontend.home.offersection')

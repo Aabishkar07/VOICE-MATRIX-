@@ -32,117 +32,29 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Partner 1 -->
 
-            <div class="group relative">
-                <div
-                    class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 p-8 border border-gray-100 relative overflow-hidden">
-                    <!-- Accent Border -->
-                    <div class="absolute top-0 left-0 w-full h-1 rounded-t-2xl"
-                        style="background: linear-gradient(to right, #ff3131, #050a30);"></div>
+            @foreach ($affiliations as $affiliation)
+                <div class="group relative">
+                    <div
+                        class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 p-8 border border-gray-100 relative overflow-hidden">
+                        <!-- Accent Border -->
+                        <div class="absolute top-0 left-0 w-full h-1 rounded-t-2xl"
+                            style="background: linear-gradient(to right, #ff3131, #050a30);"></div>
 
-                    <div class="text-center">
-                        <div class="relative ">
-                            <div
-                                class=" mx-auto rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110">
-                                <img src="https://cdn.easyfrontend.com/pictures/logos/color-logo-3.png"
-                                    alt="InnovateLab"
-                                    class=" transition-all duration-300 filter grayscale group-hover:grayscale-0" />
+                        <div class="text-center">
+                            <div class="relative ">
+                                <div
+                                    class=" mx-auto rounded-2xl flex items-center justify-center h-24 object-contain transition-all duration-300 group-hover:scale-110">
+                                    <img src="{{ asset('uploads/' . $affiliation->image) }}"
+                                        alt="InnovateLab"
+                                        class=" transition-all duration-300 filter grayscale group-hover:grayscale-0" />
+                                </div>
                             </div>
+
+
                         </div>
-
-
                     </div>
                 </div>
-            </div>
-
-            <!-- Partner 2 -->
-
-            <div class="group relative">
-                <div
-                    class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 p-8 border border-gray-100 relative overflow-hidden">
-                    <!-- Accent Border -->
-                    <div class="absolute top-0 left-0 w-full h-1 rounded-t-2xl"
-                        style="background: linear-gradient(to right, #ff3131, #050a30);"></div>
-
-                    <div class="text-center">
-                        <div class="relative ">
-                            <div
-                                class=" mx-auto rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110">
-                                <img src="https://cdn.easyfrontend.com/pictures/logos/color-logo-3.png"
-                                    alt="InnovateLab"
-                                    class=" transition-all duration-300 filter grayscale group-hover:grayscale-0" />
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-
-            {{-- <div class="group relative">
-                <div
-                    class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 p-8 border border-gray-100 relative overflow-hidden">
-                    <!-- Accent Border -->
-                    <div class="absolute top-0 left-0 w-full h-1 rounded-t-2xl"
-                        style="background: linear-gradient(to right, #ff3131, #050a30);"></div>
-
-                    <div class="text-center">
-                        <div class="relative ">
-                            <div
-                                class=" mx-auto rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110">
-                                <img src="https://cdn.easyfrontend.com/pictures/logos/color-logo-7.png"
-                                    alt="InnovateLab"
-                                    class=" transition-all duration-300 filter grayscale group-hover:grayscale-0" />
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div> --}}
-            <!-- Partner 3 -->
-            <div class="group relative">
-                <div
-                    class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 p-8 border border-gray-100 relative overflow-hidden">
-                    <!-- Accent Border -->
-                    <div class="absolute top-0 left-0 w-full h-1 rounded-t-2xl"
-                        style="background: linear-gradient(to right, #ff3131, #050a30);"></div>
-
-                    <div class="text-center">
-                        <div class="relative ">
-                            <div
-                                class=" mx-auto rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110">
-                                <img src="https://cdn.easyfrontend.com/pictures/logos/color-logo-6.png"
-                                    alt="InnovateLab"
-                                    class=" transition-all duration-300 filter grayscale group-hover:grayscale-0" />
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-            <!-- Partner 4 -->
-            <div class="group relative">
-                <div
-                    class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 p-8 border border-gray-100 relative overflow-hidden">
-                    <!-- Accent Border -->
-                    <div class="absolute top-0 left-0 w-full h-1 rounded-t-2xl"
-                        style="background: linear-gradient(to right, #ff3131, #050a30);"></div>
-
-                    <div class="text-center">
-                        <div class="relative ">
-                            <div
-                                class=" mx-auto rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110">
-                                <img src="https://cdn.easyfrontend.com/pictures/logos/color-logo-6.png"
-                                    alt="InnovateLab"
-                                    class=" transition-all duration-300 filter grayscale group-hover:grayscale-0" />
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
 
         </div>

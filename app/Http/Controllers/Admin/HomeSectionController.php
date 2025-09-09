@@ -51,7 +51,7 @@ class HomeSectionController extends Controller
             $req["mini_image"] = $mini_image;
         }
 
-       
+
         $homeSection = HomeSection::create($req);
 
         return redirect()->route("admin.homesections.index")->with("popsuccess", "Home Section Added");
@@ -96,7 +96,7 @@ class HomeSectionController extends Controller
             $req['mini_image'] = $mini_image;
         }
 
-        $req['slug'] = Str::slug($request->title);
+        // $req['slug'] = Str::slug($request->title);
         $homesection->update($req);
 
         return redirect()->route("admin.homesections.index")->with("popsuccess", "Home Section Updated");

@@ -9,17 +9,15 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
 
-                <h2 class="text-4xl md:text-5xl font-bold text-[#050a30] mb-4">
-                    Why Choose
-                    <span class="text-[#ff3131]">Our Services</span>?
+                <h2 class="text-4xl md:text-5xl font-bold text-[#ff3131] mb-4">
+                    {{ $best->title }}
                 </h2>
 
                 <p class="text-xl text-gray-600 mb-8">
-                    We provide comprehensive business solutions that drive growth and deliver exceptional results for
-                    our clients worldwide.
+                   {!! $best->description !!}
                 </p>
 
-                <div class="space-y-6">
+                {{-- <div class="space-y-6">
                     <div class="flex items-start gap-4">
                         <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -62,13 +60,13 @@
                                 turnover.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
-        <div class="relative mt-3">
+            <div class="relative mt-3">
                 <!-- Main Business Image -->
                 <div class="relative overflow-hidden rounded-2xl shadow-2xl">
-                    <img src="{{ asset('images/img3.jpg') }}" alt="Business Meeting"
+                    <img src="{{ asset('uploads/' . $best->image) }}" alt="Business Meeting"
                         class="w-full h-96 object-cover transform hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
 
@@ -79,7 +77,7 @@
                 <!-- Small Animated Image - Positioned Absolutely -->
                 <div class="absolute -top-8 -right-1 md:-right-8 w-32 h-14" style="animation: bounce 3s infinite;">
                     <div class="relative">
-                        <img src="{{ asset('images/img2.jpg') }}" alt="Success Icon"
+                        <img src="{{ asset('uploads/' . $best->mini_image) }}" alt="Success Icon"
                             class="w-full h-full object-cover rounded-lg border-4 border-white shadow-xl transform hover:rotate-12 transition-transform duration-500">
 
 

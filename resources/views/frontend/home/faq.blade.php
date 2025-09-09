@@ -47,28 +47,15 @@
                         <div class="absolute bottom-4 left-4 w-16 h-16 bg-white/10 rounded-full blur-xl"></div>
                     </div>
 
-                    <!-- Stats Cards -->
-                    {{-- <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-[#050a30] mb-1">24/7</div>
-                            <div class="text-sm text-gray-600">Support Available</div>
-                        </div>
-                    </div> --}}
-
-                    {{-- <div class="absolute -top-6 -left-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-[#ff3131] mb-1">100+</div>
-                            <div class="text-sm text-gray-600">Happy Clients</div>
-                        </div>
-                    </div> --}}
                 </div>
 
                 <!-- Right Side - FAQ Accordion -->
                 <div class="space-y-4">
-                    <!-- FAQ Item 1 -->
+                    @forelse($faqs as $faq)
+                    <!-- FAQ Item {{ $loop->iteration }} -->
                     <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300">
                         <button class="faq-toggle w-full px-8 py-6 text-left flex items-center justify-between focus:outline-none group-hover:bg-gray-50 transition-colors duration-300" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-semibold text-[#050a30] pr-4">What services do you offer?</h3>
+                            <h3 class="text-xl font-semibold text-[#050a30] pr-4">{{ $faq->title }}</h3>
                             <div class="flex-shrink-0 w-8 h-8 bg-[#ff3131] rounded-full flex items-center justify-center transform transition-transform duration-300">
                                 <svg class="w-5 h-5 text-white transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
@@ -77,98 +64,24 @@
                         </button>
                         <div class="faq-content hidden px-8 pb-6">
                             <div class="border-t border-gray-100 pt-6">
-                                <p class="text-gray-600 leading-relaxed">
-                                    We offer a comprehensive range of digital services including web development, mobile app development,
-                                    digital marketing, SEO optimization, and custom software solutions. Our team specializes in creating
-                                    innovative solutions tailored to your business needs.
-                                </p>
+                                <div class="text-gray-600 leading-relaxed">
+                                    {!! $faq->description !!}
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- FAQ Item 2 -->
-                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300">
-                        <button class="faq-toggle w-full px-8 py-6 text-left flex items-center justify-between focus:outline-none group-hover:bg-gray-50 transition-colors duration-300" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-semibold text-[#050a30] pr-4">How long does a typical project take?</h3>
-                            <div class="flex-shrink-0 w-8 h-8 bg-[#ff3131] rounded-full flex items-center justify-center transform transition-transform duration-300">
-                                <svg class="w-5 h-5 text-white transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="faq-content hidden px-8 pb-6">
-                            <div class="border-t border-gray-100 pt-6">
-                                <p class="text-gray-600 leading-relaxed">
-                                    Project timelines vary depending on complexity and scope. A simple website typically takes 2-4 weeks,
-                                    while complex web applications can take 2-6 months. We provide detailed timelines during our initial
-                                    consultation and keep you updated throughout the development process.
-                                </p>
-                            </div>
+                    @empty
+                    <!-- No FAQs Available -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden p-8 text-center">
+                        <div class="text-gray-500">
+                            <svg class="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="text-xl font-semibold text-gray-600 mb-2">No FAQs Available</h3>
+                            <p class="text-gray-500">Check back later for frequently asked questions.</p>
                         </div>
                     </div>
-
-                    <!-- FAQ Item 3 -->
-                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300">
-                        <button class="faq-toggle w-full px-8 py-6 text-left flex items-center justify-between focus:outline-none group-hover:bg-gray-50 transition-colors duration-300" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-semibold text-[#050a30] pr-4">Do you provide ongoing support and maintenance?</h3>
-                            <div class="flex-shrink-0 w-8 h-8 bg-[#ff3131] rounded-full flex items-center justify-center transform transition-transform duration-300">
-                                <svg class="w-5 h-5 text-white transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="faq-content hidden px-8 pb-6">
-                            <div class="border-t border-gray-100 pt-6">
-                                <p class="text-gray-600 leading-relaxed">
-                                    Yes, we offer comprehensive support and maintenance packages. This includes regular updates,
-                                    security monitoring, performance optimization, and technical support. We believe in building
-                                    long-term partnerships with our clients to ensure their continued success.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 4 -->
-                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300">
-                        <button class="faq-toggle w-full px-8 py-6 text-left flex items-center justify-between focus:outline-none group-hover:bg-gray-50 transition-colors duration-300" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-semibold text-[#050a30] pr-4">What is your pricing structure?</h3>
-                            <div class="flex-shrink-0 w-8 h-8 bg-[#ff3131] rounded-full flex items-center justify-center transform transition-transform duration-300">
-                                <svg class="w-5 h-5 text-white transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="faq-content hidden px-8 pb-6">
-                            <div class="border-t border-gray-100 pt-6">
-                                <p class="text-gray-600 leading-relaxed">
-                                    Our pricing is project-based and depends on the scope, complexity, and timeline of your requirements.
-                                    We offer competitive rates and flexible payment options. Contact us for a free consultation and
-                                    detailed quote tailored to your specific needs.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 5 -->
-                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300">
-                        <button class="faq-toggle w-full px-8 py-6 text-left flex items-center justify-between focus:outline-none group-hover:bg-gray-50 transition-colors duration-300" onclick="toggleFAQ(this)">
-                            <h3 class="text-xl font-semibold text-[#050a30] pr-4">Can you work with existing systems and technologies?</h3>
-                            <div class="flex-shrink-0 w-8 h-8 bg-[#ff3131] rounded-full flex items-center justify-center transform transition-transform duration-300">
-                                <svg class="w-5 h-5 text-white transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="faq-content hidden px-8 pb-6">
-                            <div class="border-t border-gray-100 pt-6">
-                                <p class="text-gray-600 leading-relaxed">
-                                    Absolutely! We have extensive experience integrating with existing systems, databases, and third-party
-                                    APIs. Our team can work with various technologies and platforms to enhance your current infrastructure
-                                    while ensuring seamless compatibility and minimal disruption to your operations.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
         </div>

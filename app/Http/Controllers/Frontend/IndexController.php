@@ -7,12 +7,14 @@ use App\Http\Requests\ContactRequest;
 use App\Http\Requests\StoreInquiryRequest;
 use App\Mail\ContactMail;
 use App\Mail\InquiryMail;
+use App\Models\Affiliation;
 use App\Models\Banner;
 use App\Models\Blog;
 use App\Models\Brochure;
 use App\Models\Certificate;
 use App\Models\Contact;
 use App\Models\Faq;
+use App\Models\HomeSection;
 use App\Models\Inquiry;
 use App\Models\Notice;
 use App\Models\Offer;
@@ -33,21 +35,22 @@ class IndexController extends Controller
     public function index()
     {
         $services = Service::latest()->limit(4)->get();
-
-
         $videos = Video::latest()->limit(4)->get();
         $about = Page::where('id', 3)->first();
-        $faqs = Faq::latest()->limit(4)->get();
+        $faqs = Faq::orderBy("order", "asc")->limit(4)->get();
         $teams = Team::latest()->get();
         $offers = Offer::latest()->get();
+        $affiliations = Affiliation::orderBy("order", "asc")->get();
         $tesimonials = Testimonial::first();
-        $blogs = Blog::latest()->limit(3)->get();
+        $blogs = Blog::latest()->limit(4)->get();
         $banners = Banner::orderBy("order", "asc")->get();
         $popup = Popup::get();
+        $about = HomeSection::where('id', 2)->first();
+        $best = HomeSection::where('id', 1)->first();
         $mission = Page::where('id', 4)->first();
         $vision = Page::where('id', 5)->first();
         $corevalue = Page::where('id', 6)->first();
-        return view("frontend.home.index", compact("services", "offers", "videos", "banners", "tesimonials", "teams", "blogs", 'about', 'faqs', 'popup', 'mission', 'vision', 'corevalue'));
+        return view("frontend.home.index", compact("services", "affiliations", "offers", "best","about","videos", "banners", "tesimonials", "teams", "blogs", 'about', 'faqs', 'popup', 'mission', 'vision', 'corevalue'));
     }
 
     public function submitInquery(StoreInquiryRequest $request, Product $submitInquery)
