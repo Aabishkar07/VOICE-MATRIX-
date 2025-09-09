@@ -22,8 +22,8 @@
         </div>
 
         <!-- FAQ Content with Image and Accordion -->
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="">
+            <div class="grid lg:grid-cols-2 gap-5 items-start">
                 <!-- Left Side - Image -->
                 <div class="relative">
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl">

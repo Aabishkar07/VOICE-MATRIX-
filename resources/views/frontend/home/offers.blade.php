@@ -1,7 +1,7 @@
 <section class="relative offers-section py-24 px-6 overflow-hidden">
 
     <!-- Content Container -->
-    <div class="relative z-10 max-w-7xl mx-auto">
+    <div class="relative z-10">
         <!-- Clean Header Section -->
         <div class="text-center mb-20 fade-in">
 

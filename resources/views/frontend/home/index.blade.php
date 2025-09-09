@@ -1,6 +1,5 @@
 @extends('frontend.layout.app')
 @section('body')
-
     @include('admin.include.toastmessage')
     {{-- @include('frontend.home.popup') --}}
 

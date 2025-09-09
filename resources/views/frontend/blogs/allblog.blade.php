@@ -1,13 +1,13 @@
 @extends('frontend.layout.app')
 @section('body')
     <!-- Enhanced Blog Section with Theme Colors -->
-    <section class="py-16 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden min-h-screen">
+    <section class=" bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden min-h-screen">
 
 
         <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-3">
+        {{-- <div class="absolute inset-0 opacity-3">
             <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #050a30 1px, transparent 0); background-size: 60px 60px;"></div>
-        </div>
+        </div> --}}
 
         <div class="px-10 mx-auto max-md:px-2 max-w-screen-2xl max-lg:max-w-3xl max-sm:max-w-sm relative z-10">
             <!-- Enhanced Header Section -->

@@ -7,7 +7,7 @@
         <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"
             style="background-color: #ff3131;"></div>
     </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class=" px-4 sm:px-6 lg:px-8 relative">
         <!-- Section Header -->
         <div class="text-center mb-16">
             <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-6"
