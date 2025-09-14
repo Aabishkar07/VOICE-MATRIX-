@@ -1,6 +1,6 @@
 @extends('frontend.layout.app')
 @section('body')
-    <div class="px-20 space-y-4 py-14 max-lg:px-10 max-sm:px-5">
+    <div class="px-20 space-y-4 py-14 max-lg:px-10 max-sm:px-2">
 
         <div
             class="flex items-center justify-center text-4xl font-bold text-gray-800 max-md:text-2xl max-sm:text-xl md:pb-10 slide-in-left">

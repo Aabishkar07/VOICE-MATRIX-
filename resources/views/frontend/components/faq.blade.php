@@ -1,5 +1,5 @@
 @if (!$faqs->isEmpty())
-    <div class="space-y-6 px-14 py-14 max-lg:px-10 max-sm:px-5 slide-in-left">
+    <div class="space-y-6 px-14 py-14 max-lg:px-10 max-sm:px-2 slide-in-left">
 
         @foreach ($faqs as $key => $faq)
             <!-- FAQ Card -->

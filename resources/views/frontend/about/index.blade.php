@@ -74,7 +74,7 @@
 
     <div class="">
         <section id="about" class="about py-16 bg-[#f8fafc] overflow-hidden">
-            <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-screen-2xl mx-auto px-4 relative z-10">
                 <div class="mb-10 text-center">
                     <div
                         class="inline-flex items-center px-4 py-1.5 rounded-full bg-[#ff3131]/10 text-[#ff3131] text-sm font-medium">
