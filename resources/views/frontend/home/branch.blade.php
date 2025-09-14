@@ -6,7 +6,7 @@
         <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#ff3131] rounded-full blur-3xl"></div>
     </div>
 
-    <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-screen-2xl mx-auto px-4 relative z-10">
         <!-- Section Header -->
         <div class="text-center mb-16">
             <div class="inline-flex items-center justify-center w-16 h-16 bg-[#050a30] rounded-full mb-6">

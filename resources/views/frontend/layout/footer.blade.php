@@ -131,7 +131,7 @@
 
 
 <footer class="footer bg-[#050a30] text-white py-12">
-    <div class="container mx-auto px-4">
+    <div class="max-w-screen-2xl mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             <div class="md:col-span-2 lg:col-span-2">
                 <a href="{{ asset('home') }}" class="text-2xl font-bold text-white inline-block mb-4">
@@ -195,11 +195,13 @@
             </div>
         </div>
         <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p class="text-gray-400 mb-4 md:mb-0">&copy; 2023 Voice MAtrix BPO Solutions. All Rights Reserved.</p>
+            <p class="text-gray-400 mb-4 md:mb-0">&copy; 2025 Voice MAtrix BPO Solutions. All Rights Reserved.</p>
             <div class="flex space-x-6">
-                <a href="{{ route('privacyPolicy') }}" class="text-gray-200 hover:text-white transition-colors duration-300">Privacy
+                <a href="{{ route('privacyPolicy') }}"
+                    class="text-gray-200 hover:text-white transition-colors duration-300">Privacy
                     Policy</a>
-                <a href="{{ route('termsandcondition') }}" class="text-gray-200 hover:text-white transition-colors duration-300">Terms of
+                <a href="{{ route('termsandcondition') }}"
+                    class="text-gray-200 hover:text-white transition-colors duration-300">Terms of
                     Service</a>
                 {{-- <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Sitemap</a> --}}
             </div>

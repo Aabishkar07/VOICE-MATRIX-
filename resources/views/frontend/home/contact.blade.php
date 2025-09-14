@@ -5,7 +5,7 @@
 <section id="contact" class=" py-20 relative overflow-hidden bg-white">
 
 
-    <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-screen-2xl mx-auto px-4 relative z-10">
         <!-- Header -->
         <div class="text-center mb-16 animate-fade-in">
             <div class="inline-block mb-4">

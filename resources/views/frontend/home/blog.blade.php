@@ -8,7 +8,7 @@
             style="background-color: #ff3131;"></div>
     </div>
 
-    <div class=" px-4 sm:px-6 lg:px-8 relative">
+    <div class="max-w-screen-2xl mx-auto px-4 relative">
         <!-- Section Header -->
         <div class="text-center mb-16">
             <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-6"
@@ -35,7 +35,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             @foreach ($blogs as $blog)
                 <a href="{{ route('blogsingle', $blog->slug) }}">
-                    
+
                     @include('frontend.components.blog')
                 </a>
             @endforeach
