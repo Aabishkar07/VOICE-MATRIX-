@@ -168,11 +168,11 @@
 <!-- Main Navbar -->
 <nav class="bg-white shadow-lg relative z-[999]">
     <!-- Top Navbar -->
-    <div class="max-w-screen-2xl mx-auto px-4">
+    <div class="max-w-screen-2xl mx-auto sm:px-4">
         <div class="flex justify-between items-center py-4">
             <!-- Logo -->
             <a href="{{ route('home') }}" class="flex items-center">
-                <div class="flex items-center space-x-2 w-44">
+                <div class="flex items-center space-x-2 w-40      sm:w-44">
                     <img src="{{ asset('images/voicematriclogo.svg') }}" alt="voicematrixlogo" class="w-full" />
                 </div>
             </a>
@@ -193,7 +193,7 @@
 
             <div class="flex lg:hidden items-center space-x-2">
                 <a href="{{ route('contact') }}"
-                    class="bg-[#ff3131] text-sm hover:bg-[#050a30] text-white px-6 py-2 rounded-lg font-medium ease-in-out transition-all duration-700">LET'S
+                    class="bg-[#ff3131]  text-xs sm:text-sm hover:bg-[#050a30] text-white px-2.5 sm:px-6 py-2 rounded-lg font-medium ease-in-out transition-all duration-700">LET'S
                     TALK</a>
                 <!-- Mobile Menu Button -->
                 <button class=" p-2" onclick="openMobileMenu()" aria-label="Open menu">
