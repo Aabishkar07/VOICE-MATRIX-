@@ -12,6 +12,7 @@ class OtherSetting extends Model
         'email',
         'address',
         'contact_number',
+        'whatsapp',
         'facebook',
         'instagram',
         'youtube',

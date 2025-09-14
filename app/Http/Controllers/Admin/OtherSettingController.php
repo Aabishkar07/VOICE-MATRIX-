@@ -66,6 +66,7 @@ class OtherSettingController extends Controller
             'address' => $request->address,
             'googlemap' => $request->googlemap,
             'mainaddress' => $request->main_address,
+            'whatsapp' => $request->whatsapp,
             'tiktok' => $request->tiktok,
             'twitter' => $request->twitter,
             'short_description' => $request->short_description,

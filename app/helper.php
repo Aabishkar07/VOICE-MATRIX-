@@ -37,8 +37,7 @@ function getServicesWithProducts($parent_id)
 {
     // Get main services with parent_id = 0
     $services = Service::where('parent_id', $parent_id)
-
-        ->get();
+  ->get();
 
     foreach ($services as $service) {
         // Get direct subcategories where parent_id matches current service id

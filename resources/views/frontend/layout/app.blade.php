@@ -19,6 +19,11 @@
         {{-- <div class="z-[887] bg-white">
             @include('frontend.layout.topnav')
         </div> --}}
+        <div class="fixed max-md:hidden block bottom-10 md:bottom-0 right-0 p-4 z-[999]">
+            @include('frontend.home.whatsapp')
+
+
+        </div>
         <div class="sticky top-0  z-[888] bg-white shadow">
             @include('frontend.layout.navbar')
         </div>
@@ -35,4 +40,3 @@
 </body>
 
 </html>
-

@@ -74,6 +74,16 @@
                                     id="grid-last-name" type="text" value="{{ $setting->googlemap ?? '' }}"
                                     name="googlemap">
                             </div>
+                            <div class="w-full px-3 mt-4 md:w-1/2">
+                                <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+                                    for="grid-last-name">
+                                    Whatsapp
+                                </label>
+                                <input
+                                    class="border bg-slate-50 font-normal border-gray-300 p-3 rounded focus:border-[#7065d4] hover:border-[#7065d4] w-full focus:outline-non "
+                                    id="grid-last-name" type="number" value="{{ $setting->whatsapp ?? '' }}"
+                                    name="whatsapp">
+                            </div>
                         </div>
 
                         <div class="w-full  mt-4 ">
