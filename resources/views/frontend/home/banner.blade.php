@@ -1,4 +1,5 @@
-<section class="hero  pt-20 pb-28 md:pt-20 md:pb-24 lg:pb-20 bg-gradient-to-r from-[#1a365d] to-[#2c5aa0] text-white relative overflow-hidden">
+<section
+    class="hero  pt-20 pb-28 md:pt-20 md:pb-24 lg:pb-20 bg-gradient-to-r from-[#1a365d] to-[#2c5aa0] text-white relative overflow-hidden">
     <div class="max-w-screen-2xl mx-auto px-4">
         <div class="flex  flex-col md:flex-row items-center min-h-[60vh] md:min-h-[89vh] relative z-20">
 
@@ -59,50 +60,34 @@
     </div>
 </section>
 
-<section id="industries" class="industries  relative top-0  sm:-top-36 z-[666]">
+<section id="industries" class="industries relative top-0 sm:-top-36 z-[666]">
     <div class="max-w-screen-2xl mx-auto px-4">
 
 
-        <div class="text-center mb-16 animate-fade-in">
-            <h2 class="text-4xl md:text-5xl font-bold text-[#050a30] mb-4">
-                Industries We
-                <span class="text-[#ff3131]">Serve</span>
+        <div class="text-center mb-12 sm:mb-16 animate-fade-in">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#ff3131]/30 bg-[#050a30]/90 text-white mb-4">
+                <span class="w-2 h-2 rounded-full bg-[#ff3131] animate-pulse"></span>
+                <span class="text-sm font-medium">Our Expertise</span>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-[#050a30] tracking-tight mb-3">
+                Industries We <span class="text-[#ff3131]">Serve</span>
             </h2>
-
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Specialized BPO solutions for diverse industry sectors
-            </p>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">Specialized BPO solutions for diverse industry sectors</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            <div class="industry-card bg-gray-50 rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in"
-                style="animation-delay: 0.1s">
-                <i class="fas fa-hospital text-4xl text-primary mb-4"></i>
-                <h3 class="text-lg font-semibold text-secondary">Healthcare</h3>
-            </div>
-            <div class="industry-card bg-gray-50 rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in"
-                style="animation-delay: 0.2s">
-                <i class="fas fa-university text-4xl text-primary mb-4"></i>
-                <h3 class="text-lg font-semibold text-secondary">Banking & Finance</h3>
-            </div>
-            <div class="industry-card bg-gray-50 rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in"
-                style="animation-delay: 0.3s">
-                <i class="fas fa-shopping-cart text-4xl text-primary mb-4"></i>
-                <h3 class="text-lg font-semibold text-secondary">Retail & E-commerce</h3>
-            </div>
-            <div class="industry-card bg-gray-50 rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in"
-                style="animation-delay: 0.4s">
-                <i class="fas fa-plane text-4xl text-primary mb-4"></i>
-                <h3 class="text-lg font-semibold text-secondary">Travel & Hospitality</h3>
-            </div>
-            <div class="industry-card bg-gray-50 rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in"
-                style="animation-delay: 0.5s">
-                <i class="fas fa-mobile-alt text-4xl text-primary mb-4"></i>
-                <h3 class="text-lg font-semibold text-secondary">Telecommunications</h3>
-            </div>
-            <div class="industry-card bg-gray-50 rounded-xl p-6 text-center shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in"
-                style="animation-delay: 0.6s">
-                <i class="fas fa-industry text-4xl text-primary mb-4"></i>
-                <h3 class="text-lg font-semibold text-secondary">Manufacturing</h3>
-            </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+            @foreach ($industries as $industry)
+                <div class="group relative overflow-hidden rounded-2xl bg-white border border-[#050a30]/10 hover:border-[#ff3131] shadow-sm  transition-all duration-300 will-change-transform hover:-translate-y-1 animate-scale-in">
+                    <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#050a30] via-[#ff3131] to-[#050a30] opacity-80"></div>
+                    <div class="px-4 sm:px-6 pt-6 pb-5 text-center">
+                        <div class="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-xl bg-[#050a30]/5 ring-1 ring-[#050a30]/10 group-hover:ring-[#ff3131]/40 transition">
+                            <img src="{{ asset('uploads/' . $industry->image) }}" alt="{{ $industry->title }}" class="object-contain w-16 h-16 sm:w-20 sm:h-20 group-hover:scale-105 transition-transform duration-300" />
+                        </div>
+                        <h3 class="text-base sm:text-lg font-semibold text-[#050a30] group-hover:text-[#ff3131] transition-colors">{{ $industry->title }}</h3>
+                    </div>
+                    <div class="pointer-events-none absolute -bottom-6 -right-6 h-16 w-16 rounded-full bg-[#ff3131]/10 blur-xl group-hover:bg-[#ff3131]/20 transition"></div>
+                </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -172,4 +157,28 @@
         stroke-dasharray: 125.6;
         transform: rotate(-90deg);
     }
+
+    /* Theme animations used by Industries section */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(16px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.98);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    .animate-fade-in { animation: fadeInUp 0.8s ease both; }
+    .animate-scale-in { animation: scaleIn 0.5s ease both; }
 </style>

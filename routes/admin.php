@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\HomeSectionController;
+use App\Http\Controllers\Admin\IndustryController;
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\OtherSettingController;
@@ -47,6 +48,7 @@ Route::middleware(["admin"])->group(function () {
     Route::resource('certificate', CertificateController::class);
     Route::resource('contacts', ContactController::class);
     Route::resource('metapages', MetaPageController::class);
+    Route::resource('industries', IndustryController::class);
     Route::get('/inquirys', [ContactController::class, 'inquiry'])->name('inquiry');
     Route::resource('popup', AdminPopupController::class);
     Route::resource('notice', NoticeController::class);

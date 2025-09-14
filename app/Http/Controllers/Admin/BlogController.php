@@ -14,7 +14,8 @@ class BlogController extends Controller
 {
     public function __construct(
         protected ImageService $imageservice
-    ) {}
+    ) {
+    }
 
     /**
      * Display a listing of the resource.
@@ -72,7 +73,7 @@ class BlogController extends Controller
         $req = $request->all();
         if ($request->hasFile('featured_image')) {
             if ($blog->featured_image) {
-                $this->imageservice->imageDelete(filePath: $blog->featured_image);
+                $this->imageservice->imageDelete($blog->featured_image);
             }
             $blog_image = $this->imageservice->fileUpload($req["featured_image"], "blog");
             $req['featured_image'] = $blog_image;

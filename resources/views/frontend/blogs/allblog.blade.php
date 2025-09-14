@@ -1,7 +1,7 @@
 @extends('frontend.layout.app')
 @section('body')
     <!-- Enhanced Blog Section with Theme Colors -->
-    <section class=" bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden min-h-screen">
+    <section class=" bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden pb-12">
 
 
         <!-- Background Pattern -->

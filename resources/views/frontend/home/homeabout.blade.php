@@ -1,4 +1,4 @@
-<section id="about" class="about py-20 relative overflow-hidden">
+<section id="about" class="about pt-20 relative overflow-hidden">
     <!-- Background decorative elements -->
     <div
         class="absolute top-0 left-0 w-40 h-40 sm:w-72 sm:h-72 bg-[#ff3131]/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse">

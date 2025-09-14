@@ -1,9 +1,9 @@
-<section class="relative offers-section py-24 px-4 overflow-hidden">
+<section class="relative max-w-screen-2xl mx-auto offers-section py-10 px-4 overflow-hidden">
 
     <!-- Content Container -->
     <div class="relative z-10">
         <!-- Clean Header Section -->
-        <div class="text-center mb-20 fade-in">
+        <div class="text-center fade-in">
             <div class="text-center mb-16">
                 <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-6"
                     style="background-color: rgba(5, 10, 48, 0.1); color: #050a30;">
