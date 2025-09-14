@@ -123,7 +123,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="px-6 py-12 text-center">
+                            <td colspan="5" class="px-6 py-12 text-center">
                                 <div class="flex flex-col items-center">
                                     <svg class="w-12 h-12 text-gray-400 mb-4" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24">
@@ -133,31 +133,19 @@
                                     </svg>
                                     <h3 class="text-lg font-medium text-gray-900 mb-2">No offers found</h3>
                                     <p class="text-gray-500 mb-4">Get started by creating your first offer.</p>
-                                    @if (request('offers'))
-                                        <a href="{{ route('admin.offers.create', ['offers' => request('offers')]) }}"
-                                            class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#ff3131] rounded-lg hover:bg-[#ff3135] transition-colors">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2"
-                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M12 5l0 14"></path>
-                                                <path d="M5 12l14 0"></path>
-                                            </svg>
-                                            Add Sub offer
-                                        </a>
-                                    @else
-                                        <a href="{{ route('admin.offers.create') }}"
-                                            class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#ff3131] rounded-lg hover:bg-[#ff3135] transition-colors">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2"
-                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M12 5l0 14"></path>
-                                                <path d="M5 12l14 0"></path>
-                                            </svg>
-                                            Add offer
-                                        </a>
-                                    @endif
+
+                                    <a href="{{ route('admin.offers.create') }}"
+                                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#ff3131] rounded-lg hover:bg-[#ff3135] transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" viewBox="0 0 24 24"
+                                            stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M12 5l0 14"></path>
+                                            <path d="M5 12l14 0"></path>
+                                        </svg>
+                                        Add offer
+                                    </a>
+
                                 </div>
                             </td>
                         </tr>

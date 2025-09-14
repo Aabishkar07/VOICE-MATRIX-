@@ -14,7 +14,11 @@ class Partner extends Model
         'slug',
         'description',
         'number',
-        'address'
+        'address',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+        'meta_image',
 
     ];
 

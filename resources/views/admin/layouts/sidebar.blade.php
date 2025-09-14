@@ -190,6 +190,20 @@
 
                     <span class="mx-3">Page</span>
                 </a>
+                <a class="{{ request()->segment(2) == 'metapages' ? ' bg-[#ff3131] text-white border-l-4 border-[#ff3131] flex items-center px-6 py-2 mr-3 flex-1 mt-2 rounded-md' : 'mr-3 flex-1 mt-2 rounded-md hover:bg-gray-50 hover:text-[#050a30] flex items-center px-6 py-2 text-gray-600 transition-colors border-l-4 border-transparent hover:border-[#ff3131]' }}"
+                    href="{{ route('admin.metapages.index') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-info">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                        <path d="M11 14h1v4h1" />
+                        <path d="M12 11h.01" />
+                    </svg>
+
+                    <span class="mx-3">Meta Page</span>
+                </a>
 
 
                 <a class="{{ request()->segment(2) == 'teams' ? ' bg-[#ff3131] text-white border-l-4 border-[#ff3131] flex items-center px-6 py-2 mr-3 flex-1 mt-2 rounded-md' : 'mr-3 flex-1 mt-2 rounded-md hover:bg-gray-50 hover:text-[#050a30] flex items-center px-6 py-2 text-gray-600 transition-colors border-l-4 border-transparent hover:border-[#ff3131]' }}"

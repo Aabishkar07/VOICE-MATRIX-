@@ -22,7 +22,9 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\VideoController;
+use App\Http\Controllers\MetaPageController;
 use App\Http\Controllers\PopupController;
+
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -44,6 +46,7 @@ Route::middleware(["admin"])->group(function () {
     Route::resource('testimonial', TestimonialController::class);
     Route::resource('certificate', CertificateController::class);
     Route::resource('contacts', ContactController::class);
+    Route::resource('metapages', MetaPageController::class);
     Route::get('/inquirys', [ContactController::class, 'inquiry'])->name('inquiry');
     Route::resource('popup', AdminPopupController::class);
     Route::resource('notice', NoticeController::class);

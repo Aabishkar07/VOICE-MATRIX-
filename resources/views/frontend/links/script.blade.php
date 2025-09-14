@@ -44,3 +44,46 @@
         background-color: #e2dddf;
     }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const divs = document.querySelectorAll(".fade-up");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        // Delay each element for a staggered effect
+                        setTimeout(() => {
+                            entry.target.classList.add("active");
+                        }, 100); // Adjust delay as needed (100ms in this case)
+                    }
+                });
+            }, {
+                threshold: 0.2
+            } // Trigger when 20% of the element is visible
+        );
+
+        divs.forEach((div) => observer.observe(div));
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const elements = document.querySelectorAll(".slide-in-left");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                    }
+                });
+            }, {
+                threshold: 0.1
+            } // Trigger when 10% of the element is visible
+        );
+
+        elements.forEach((element) => observer.observe(element));
+    });
+</script>
