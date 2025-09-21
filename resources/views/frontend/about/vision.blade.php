@@ -7,7 +7,7 @@
             </div>
         @endif --}}
 
-        <div class="w-full lg:w-3/5">
+        <div class="w-full ">
             <div class="inline-flex items-center px-2.5 py-1 rounded-full bg-[#ff3131]/10 text-[#ff3131] text-xs font-medium">
                 <span class="w-1.5 h-1.5 bg-[#ff3131] rounded-full mr-2"></span>
                 <span>Our Vision</span>

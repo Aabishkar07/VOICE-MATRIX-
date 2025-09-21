@@ -1,4 +1,4 @@
-<section id="about" class="about pt-20 relative overflow-hidden">
+<section id="about" class="about  relative overflow-hidden">
     <!-- Background decorative elements -->
     <div
         class="absolute top-0 left-0 w-40 h-40 sm:w-72 sm:h-72 bg-[#ff3131]/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse">
@@ -8,54 +8,20 @@
     </div>
 
     <div class="max-w-screen-2xl mx-auto px-4 relative z-10">
-        <div class="flex flex-col lg:flex-row items-center gap-10 sm:gap-14 lg:gap-16">
-            <!-- Image Section with Unique Hexagonal Shape -->
-            <div class="lg:w-1/2 animate-slide-left mb-10 lg:mb-0">
-                <div class="relative group">
-                    <!-- Blob container -->
-                    <div class="blob-container relative w-[320px] h-[320px] sm:w-[500px] sm:h-[500px] mx-auto">
-                        <div
-                            class="blob-shape overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 group-hover:rotate-6">
-                            <img src="{{ asset('uploads/' . $about->image ?? '') }}" alt="About Apex BPO"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        </div>
-                        <!-- Decorative rings -->
-                        <div
-                            class="absolute -inset-6 border-2 border-[#ff3131]/40 blob-shape opacity-40 animate-spin-slow">
-                        </div>
-                        <div
-                            class="absolute -inset-12 border border-[#ff3131]/25 blob-shape opacity-25 animate-spin-reverse">
-                        </div>
-                        <div class="absolute -inset-16 border border-[#ff3131]/15 blob-shape opacity-15 animate-pulse">
-                        </div>
-                    </div>
-
-                    <!-- Enhanced Floating elements -->
-                    <div
-                        class="hidden sm:flex absolute -top-8 -right-8 w-16 h-16 bg-gradient-to-r from-[#ff3131] to-[#ff3131]/80 rounded-full items-center justify-center text-white font-bold shadow-xl animate-bounce">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                    </div>
-                    <div
-                        class="hidden sm:flex absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-r from-[#050a30] to-[#050a30]/80 border-2 border-[#ff3131]/30 rounded-full animate-pulse items-center justify-center">
-                        <svg class="w-6 h-6 text-[#ff3131]" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
-                        </svg>
-                    </div>
-                    <div
-                        class="hidden sm:block absolute top-1/2 -left-8 w-10 h-10 bg-gradient-to-r from-[#ff3131]/60 to-[#ff3131]/40 rounded-full animate-ping opacity-75">
-                    </div>
-                    <div
-                        class="hidden sm:block absolute top-1/4 -right-4 w-6 h-6 bg-gradient-to-r from-[#ff3131] to-[#ff3131]/70 rounded-full animate-bounce delay-500">
+        <div class="flex flex-col lg:flex-row items-center gap-10 sm:gap-8 lg:gap-8">
+            <!-- Image Section (Normal Image) -->
+            <div class="lg:w-1/2 animate-slide-left mb-10 lg:mb-0 order-1 max-sm:order-2">
+                <div class="w-full max-w-[620px] mx-auto">
+                    <div class="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-gray-200/60 bg-white/70 backdrop-blur-sm transition-transform duration-300 hover:shadow-3xl hover:-translate-y-1">
+                        <img src="{{ asset('uploads/' . ($about->image ?? '')) }}" alt="About Apex BPO"
+                            class="w-full h-full object-cover">
+                        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
                     </div>
                 </div>
             </div>
 
             <!-- Content Section -->
-            <div class="lg:w-1/2 animate-slide-right text-center lg:text-left">
+            <div class="lg:w-1/2 max-sm:mt-5 animate-slide-right text-center lg:text-left order-2 max-sm:order-1">
                 <div class="space-y-6">
                     <!-- Section Badge -->
                     <div
@@ -115,42 +81,6 @@
 </section>
 
 <style>
-    .blob-shape {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    }
-
-    .blob-container {
-        position: relative;
-    }
-
-    @keyframes spin-slow {
-        from {
-            transform: rotate(0deg);
-        }
-
-        to {
-            transform: rotate(360deg);
-        }
-    }
-
-    @keyframes spin-reverse {
-        from {
-            transform: rotate(360deg);
-        }
-
-        to {
-            transform: rotate(0deg);
-        }
-    }
-
-    .animate-spin-slow {
-        animation: spin-slow 20s linear infinite;
-    }
-
-    .animate-spin-reverse {
-        animation: spin-reverse 15s linear infinite;
-    }
-
     .animate-slide-left {
         animation: slideInLeft 1s ease-out;
     }

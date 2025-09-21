@@ -35,16 +35,20 @@
                                 <li class="inline-flex items-center">
                                     <a href="{{ route('home') }}"
                                         class="inline-flex items-center text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 mr-2" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l9-9 9 9M4 10v10h6v-6h4v6h6V10" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" class="w-4 h-4 mr-2" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M3 12l9-9 9 9M4 10v10h6v-6h4v6h6V10" />
                                         </svg>
                                         Home
                                     </a>
                                 </li>
                                 <li>
                                     <div class="flex items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4 text-gray-400 mx-2" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" class="w-4 h-4 text-gray-400 mx-2" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 5l7 7-7 7" />
                                         </svg>
                                         <span class="text-sm font-medium text-gray-300">About Us
                                     </div>
@@ -106,33 +110,21 @@
             </div>
         </section>
 
-        <style>
-            /* Simplified: removed blob and animation styles */
-        </style>
+
 
     </div>
 
-
-    <div class="my-5">
-
-        @include('frontend.about.vision')
-    </div>
-
-    <div class="my-5">
-
-        @include('frontend.about.mission')
+    <div class="my-5 w-full max-w-6xl mx-auto flex justify-center items-center">
+        <div>
+            @include('frontend.about.vision')
+            @include('frontend.about.mission')
+        </div>
     </div>
 
 
-
-    <div class="my-5 fade-up">
+    {{-- <div class="my-5 fade-up">
 
         @include('frontend.home.teams')
-    </div>
+    </div> --}}
 
-
-
-    <div class="fade-up ">
-        @include('frontend.about.certificate')
-    </div>
 @endsection

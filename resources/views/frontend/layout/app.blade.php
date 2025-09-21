@@ -13,13 +13,25 @@
 
 
 </head>
+<style>
+    /* Ensure reCAPTCHA badge stays above all UI overlays */
+    .whatsapp-badge {
+        z-index: 2147483649 !important;
+
+    }
+
+    .grecaptcha-badge {
+        z-index: 214748 !important;
+
+    }
+</style>
 
 <body>
     <div class="">
         {{-- <div class="z-[887] bg-white">
             @include('frontend.layout.topnav')
         </div> --}}
-        <div class="fixed max-md:hidden block bottom-10 md:bottom-0 right-0 p-4 z-[999]">
+        <div class="fixed whatsapp-badge    bottom-0 right-0 p-4 z-[999]">
             @include('frontend.home.whatsapp')
 
 

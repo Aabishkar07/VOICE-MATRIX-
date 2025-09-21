@@ -1,6 +1,9 @@
 @php
     $setting = getSetting();
 @endphp
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6Ld9V88rAAAAAIUq8W0hX4_mUdkZg8eWdbEx-nxE"></script>
+
+
 <!-- Contact Section with White Theme -->
 <section id="contact" class=" py-20 relative overflow-hidden bg-white">
 
@@ -100,8 +103,8 @@
                                 </div>
                             @enderror
                         </div>
-
-                        <button type="submit"
+                        <input type="hidden" name="g-token" id="g-token" value="" />
+                        <button id="buttonsubmit" type="button" onclick="onClick()"
                             class="w-full font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl text-white relative overflow-hidden group"
                             style="background: linear-gradient(135deg, #ff3131 0%, #e02828 100%);">
                             <span class="relative z-10">Send Message</span>
@@ -113,6 +116,38 @@
                     <div id="formMessage" class="mt-4"></div>
                 </div>
             </div>
+
+            <script>
+                function onClick(e) {
+                    const form = document.getElementById("contactForm");
+                    const submitBtn = document.getElementById("buttonsubmit");
+
+                    // Trigger browser's built-in HTML5 validation for required fields
+                    if (!form.reportValidity()) {
+                        return; // If invalid, the browser will show messages and prevent submission
+                    }
+
+                    // Prevent double clicks while processing
+                    submitBtn.disabled = true;
+                    submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+
+                    grecaptcha.enterprise.ready(async () => {
+                        try {
+                            const token = await grecaptcha.enterprise.execute('6Ld9V88rAAAAAIUq8W0hX4_mUdkZg8eWdbEx-nxE', {
+                                action: 'LOGIN'
+                            });
+
+                            document.getElementById("g-token").value = token;
+                            form.submit();
+                        } catch (err) {
+                            // If reCAPTCHA fails, re-enable the button so user can try again
+                            submitBtn.disabled = false;
+                            submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+                            console.error('reCAPTCHA error', err);
+                        }
+                    });
+                }
+            </script>
 
             <!-- Contact Information -->
             <div class="lg:w-1/2 animate-slide-right">

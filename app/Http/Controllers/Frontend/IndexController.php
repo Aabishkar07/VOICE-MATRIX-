@@ -55,6 +55,7 @@ class IndexController extends Controller
         $email = OtherSetting::first()->email;
 
         $req = $request->all();
+
         // dd("aa", $submitInquery, $req);
         $req["product_name"] = $submitInquery->title;
         $req["product_id"] = $submitInquery->id;
@@ -136,6 +137,7 @@ class IndexController extends Controller
         $email = OtherSetting::first()->email;
 
         $req = $request->all();
+     
         $mailData = Contact::create($req);
         Mail::to($email)->send(new ContactMail($mailData));
 
