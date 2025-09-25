@@ -39,6 +39,9 @@
                                 <p class="text-white/90 text-lg leading-relaxed">
                                     We're here to provide clear answers to all your queries about our services and solutions.
                                 </p>
+                                <a href="{{ route('faqs') }}" class="text-white hover:text-white/90 mt-4 inline-flex items-center border border-white rounded-full px-4 py-2 gap-2">View All <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg></a>
                             </div>
                         </div>
 
@@ -96,20 +99,7 @@ function toggleFAQ(button) {
     const icon = button.querySelector('svg');
     const isOpen = !content.classList.contains('hidden');
 
-    // Close all other FAQ items
-    document.querySelectorAll('.faq-content').forEach(item => {
-        if (item !== content) {
-            item.classList.add('hidden');
-        }
-    });
-
-    document.querySelectorAll('.faq-toggle svg').forEach(svg => {
-        if (svg !== icon) {
-            svg.style.transform = 'rotate(0deg)';
-        }
-    });
-
-    // Toggle current item
+    // Toggle only the current item without affecting others
     if (isOpen) {
         content.classList.add('hidden');
         icon.style.transform = 'rotate(0deg)';

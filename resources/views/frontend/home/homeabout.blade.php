@@ -1,20 +1,14 @@
 <section id="about" class="about  relative overflow-hidden">
     <!-- Background decorative elements -->
-    <div
-        class="absolute top-0 left-0 w-40 h-40 sm:w-72 sm:h-72 bg-[#ff3131]/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse">
-    </div>
-    <div
-        class="absolute bottom-0 right-0 w-56 h-56 sm:w-96 sm:h-96 bg-[#ff3131]/15 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse delay-1000">
-    </div>
 
     <div class="max-w-screen-2xl mx-auto px-4 relative z-10">
         <div class="flex flex-col lg:flex-row items-center gap-10 sm:gap-8 lg:gap-8">
             <!-- Image Section (Normal Image) -->
-            <div class="lg:w-1/2 animate-slide-left mb-10 lg:mb-0 order-1 max-sm:order-2">
-                <div class="w-full max-w-[620px] mx-auto">
+            <div class="lg:w-1/2 animate-slide-left  lg:mb-0 order-1 max-sm:order-2">
+                <div class="w-full  mx-auto">
                     <div class="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-gray-200/60 bg-white/70 backdrop-blur-sm transition-transform duration-300 hover:shadow-3xl hover:-translate-y-1">
                         <img src="{{ asset('uploads/' . ($about->image ?? '')) }}" alt="About Apex BPO"
-                            class="w-full h-full object-cover">
+                            class="w-full h-full object-contain">
                         <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
                     </div>
                 </div>
@@ -22,7 +16,7 @@
 
             <!-- Content Section -->
             <div class="lg:w-1/2 max-sm:mt-5 animate-slide-right text-center lg:text-left order-2 max-sm:order-1">
-                <div class="space-y-6">
+                <div class="space-y-2">
                     <!-- Section Badge -->
                     <div
                         class="inline-flex items-center px-4 py-2 bg-[#050a30]/80 backdrop-blur-sm rounded-full border border-[#ff3131]/30 shadow-sm">
@@ -31,7 +25,7 @@
                     </div>
 
                     <!-- Main Heading -->
-                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
+                    <h2 class="text-2xl sm:text-3xl font-bold leading-tight">
                         <span class="text-[#050a30]">{{ $about->title }}</span>
                         <br>
                         {{-- <span id="typewriter"

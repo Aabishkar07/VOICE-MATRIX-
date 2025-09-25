@@ -12,25 +12,7 @@
         <div class="w-full h-56 rounded overflow-hidden relative">
             <img src="{{ asset('uploads/' . $offer->image) }}" alt="Professional BPO Team"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-            {{-- <div class="absolute inset-0"
-                style="background: linear-gradient(135deg, rgba(5,10,48,0.7) 0%, rgba(255,49,49,0.3) 100%);">
-            </div> --}}
-
-            <!-- Premium Badge -->
-            {{-- <div class="absolute top-6 right-6 px-4 py-2 rounded-full text-white font-bold text-xs shadow-lg"
-                style="background: linear-gradient(135deg, #ff3131 0%, #050a30 100%);">
-                PREMIUM
-            </div> --}}
-
-            <!-- Icon Overlay -->
-            {{-- <div
-                class="absolute bottom-6 left-6 w-16 h-16 bg-white/95 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
-                <svg class="w-8 h-8" style="color: #050a30;" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-            </div> --}}
+           
         </div>
     </div>
 

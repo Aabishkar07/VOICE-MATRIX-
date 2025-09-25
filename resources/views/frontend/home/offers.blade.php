@@ -35,9 +35,9 @@
         <!-- Clean Grid Layout -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             @foreach ($offers as $offer)
-                <a href="{{ route('offers.single', $offer->slug) }}">
+                <a class="border bg-gradient-to-br from-gray-50 via-white to-red-50 rounded-xl shadow-2xl hover:shadow-red-500/10 transition-all duration-500 p-0 group overflow-hidden  border-gray-100" href="{{ route('offers.single', $offer->slug) }}">
                     <div
-                        class="border bg-gradient-to-br from-gray-50 via-white to-red-50 rounded-xl shadow-2xl hover:shadow-red-500/10 transition-all duration-500 p-0 group overflow-hidden  border-gray-100">
+                        class="">
                         @include('frontend.offer.card')
                     </div>
                 </a>

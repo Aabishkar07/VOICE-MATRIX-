@@ -195,8 +195,9 @@
             </div>
         </div>
         <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p class="text-gray-400 mb-4 md:mb-0">&copy; 2025 Voice MAtrix BPO Solutions. All Rights Reserved.</p>
-            <div class="flex space-x-6">
+            <div  class="text-gray-400 mb-4 md:mb-0 ">&copy; 2025 Voice MAtrix BPO Solutions. All Rights Reserved.</div>
+
+            <div class="flex space-x-6 ">
                 <a href="{{ route('privacyPolicy') }}"
                     class="text-gray-200 hover:text-white transition-colors duration-300">Privacy
                     Policy</a>
@@ -205,6 +206,13 @@
                     Service</a>
                 {{-- <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Sitemap</a> --}}
             </div>
+            <div class="max-sm:pt-5 flex items-center gap-x-2 sm:mr-16">
+                Powered By <a href="https://www.nepbyte.com" target="_blank"
+                    class="text-[#ff2953] hover:text-white hover:underline">NepByte</a> <img
+                    src="{{ asset('images/nepal_flag.gif') }}" alt="NepByte" class="w-5" />
+            </div>
+
+
         </div>
     </div>
 </footer>

@@ -1,5 +1,5 @@
 <article
-    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
+    class="">
     <div class="relative overflow-hidden">
         <img src="{{ asset('uploads/' . $blog->featured_image) }}" alt="Digital Transformation Strategies"
             class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500" />

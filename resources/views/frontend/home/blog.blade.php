@@ -34,7 +34,7 @@
         <!-- Blog Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             @foreach ($blogs as $blog)
-                <a href="{{ route('blogsingle', $blog->slug) }}">
+                <a class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-100" href="{{ route('blogsingle', $blog->slug) }}">
 
                     @include('frontend.components.blog')
                 </a>

@@ -106,20 +106,20 @@
         display: flex;
         align-items: center;
         padding: 6px 12px;
-        color: #ff3131;
+        color: #374151; /* Neutral gray as default */
         font-weight: 600;
-        font-size: 10px;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
+        font-size: 12px; /* Larger for readability */
+        letter-spacing: 0.02em;
+        text-transform: none;
         text-decoration: none;
-        border-radius: 4px;
+        border-radius: 9999px; /* pill shape when bordered parent used */
         transition: all 0.15s ease;
         white-space: nowrap;
     }
 
     .service-trigger:hover {
         background-color: #f9fafb;
-        color: #050a30;
+        color: #ff3131; /* Accent on hover */
     }
 
     .service-trigger-icon {
@@ -160,6 +160,23 @@
         .service-dropdown-menu {
             min-width: 240px;
         }
+    }
+    /* Snap scrolling for step-by-step auto scroll */
+    #servicesScroller {
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+    }
+    #servicesScroller .service-dropdown {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+    /* Hide scrollbar utility */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
     }
 </style>
 
@@ -217,13 +234,13 @@
     <div class="bg-white border-t border-gray-200">
         <div class="max-w-screen-2xl mx-auto px-6">
             <!-- Desktop: Enhanced Dynamic Parent Services with Subservices -->
-            <div class="hidden lg:flex items-center flex-wrap gap-1 py-2">
+            <div id="servicesScroller" class="hidden lg:flex items-center gap-3 py-3 overflow-x-auto no-scrollbar">
                 @foreach ($parentservices as $parent)
                     @php $children = getSubServices($parent->id); @endphp
                     <div class="service-dropdown" data-dropdown-id="{{ $parent->id }}">
-                        <div class="service-trigger">
+                        <div class="service-trigger rounded-full border border-gray-200/80 bg-white px-3 py-1.5 hover:border-[#ff3131]">
                             <a href="{{ route('subservices', ['service' => $parent->slug]) }}" class="flex-1">
-                                <span class="text-[11px]">
+                                <span class="text-[12px] tracking-wide">
                                     {{ $parent->title }}</span>
                             </a>
                             @if ($children->count())
@@ -333,7 +350,14 @@
 
             <!-- Drawer Footer -->
             <div class="px-4 py-3 border-t text-xs text-gray-500">
-                © {{ date('Y') }} Voice Matrix. All rights reserved.
+                <div class="flex items-center justify-between gap-3">
+                    <span>© {{ date('Y') }} Voice Matrix. All rights reserved.</span>
+                </div>
+                <div class="mt-2 flex items-center gap-2 text-[11px]">
+                    <span class="text-gray-600">Powered By</span>
+                    <a href="https://www.nepbyte.com" target="_blank" class="text-[#ff2953] hover:text-white hover:underline">NepByte</a>
+                    <img src="{{ asset('images/nepal_flag.gif') }}" alt="NepByte" class="w-5 h-5 object-contain" />
+                </div>
             </div>
         </div>
     </aside>
@@ -419,18 +443,88 @@
         }
     });
 
-    // Enhanced hover functionality for desktop
+    // Enhanced hover functionality for desktop + step-by-step auto scroll
     document.addEventListener('DOMContentLoaded', function() {
         const dropdowns = document.querySelectorAll('.service-dropdown');
+        const scroller = document.getElementById('servicesScroller');
+        let paused = false;
+        let userPauseTimer = null;
+        let loopWidth = 0; // width of original content before cloning
+        let baseOffset = 0; // how many loop widths we've advanced
+        let index = 0; // current chip index
+        const stepDelay = 2000; // slower pause between items
+        const resumeAfter = 2000; // pause duration after user interaction
 
+        function hasOverflow() {
+            return scroller && scroller.scrollWidth > scroller.clientWidth + 2;
+        }
+
+        // Prepare seamless loop by cloning original children once
+        function prepareSeamlessLoop() {
+            if (!scroller || scroller.dataset.loopInit === '1') return { items: [] };
+            const originalChildren = Array.from(scroller.children);
+            // Measure width before cloning
+            loopWidth = scroller.scrollWidth;
+            const clones = originalChildren.map(node => node.cloneNode(true));
+            clones.forEach(cl => { cl.setAttribute('aria-hidden', 'true'); scroller.appendChild(cl); });
+            scroller.dataset.loopInit = '1';
+            return { items: originalChildren };
+        }
+
+        function pauseForUserInteraction() {
+            paused = true;
+            if (userPauseTimer) clearTimeout(userPauseTimer);
+            userPauseTimer = setTimeout(() => { paused = false; }, resumeAfter);
+        }
+
+        function scheduleNextStep(items) {
+            setTimeout(() => stepScroll(items), stepDelay);
+        }
+
+        function stepScroll(items) {
+            if (!scroller || !hasOverflow()) {
+                return scheduleNextStep(items);
+            }
+            if (paused) {
+                return scheduleNextStep(items);
+            }
+
+            const len = items.length;
+            if (len === 0) return;
+
+            // If we've moved beyond the first loop, wrap seamlessly
+            if (loopWidth > 0 && scroller.scrollLeft >= baseOffset + loopWidth - 2) {
+                baseOffset += loopWidth;
+            }
+
+            // Calculate target for current item and scroll smoothly
+            const targetLeft = baseOffset + items[index].offsetLeft;
+            scroller.scrollTo({ left: targetLeft, behavior: 'smooth' });
+
+            // advance index cyclically
+            index = (index + 1) % len;
+            scheduleNextStep(items);
+        }
+
+        if (scroller) {
+            const { items } = prepareSeamlessLoop();
+            scroller.addEventListener('mouseenter', () => paused = true);
+            scroller.addEventListener('mouseleave', () => paused = false);
+            scroller.addEventListener('wheel', pauseForUserInteraction, { passive: true });
+            scroller.addEventListener('touchstart', pauseForUserInteraction, { passive: true });
+            scroller.addEventListener('touchmove', pauseForUserInteraction, { passive: true });
+            window.addEventListener('resize', () => { /* snapping handles layout changes */ });
+            // Kick off stepper once content is ready
+            scheduleNextStep(items);
+        }
+
+        // Preserve dropdown hover behavior
         dropdowns.forEach(dropdown => {
             let hoverTimeout;
-
             dropdown.addEventListener('mouseenter', function() {
                 clearTimeout(hoverTimeout);
                 const hasChildren = this.querySelector('.service-dropdown-menu');
                 if (hasChildren) {
-                    // Close other dropdowns first
                     if (activeDropdown && activeDropdown !== this) {
                         activeDropdown.classList.remove('active');
                     }
@@ -438,7 +532,6 @@
                     activeDropdown = this;
                 }
             });
-
             dropdown.addEventListener('mouseleave', function() {
                 const self = this;
                 hoverTimeout = setTimeout(() => {
@@ -446,7 +539,7 @@
                     if (activeDropdown === self) {
                         activeDropdown = null;
                     }
-                }, 150); // Small delay to prevent flickering
+                }, 150);
             });
         });
     });

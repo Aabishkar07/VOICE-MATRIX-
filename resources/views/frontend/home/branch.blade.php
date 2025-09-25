@@ -28,8 +28,8 @@
         </div>
 
         <!-- Cities Grid -->
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
                 @foreach ($partners as $partner)
                     <a href="{{ route('location.single', $partner->slug) }}">

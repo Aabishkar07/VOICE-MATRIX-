@@ -29,7 +29,7 @@
             </p>
         </div>
         <!-- Partners Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-2 gap-y-3">
             <!-- Partner 1 -->
 
             @foreach ($affiliations as $affiliation)
